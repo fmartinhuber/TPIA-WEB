@@ -10,34 +10,32 @@ public class SolicitudCompraBean {
 	private Integer idSolCompra;
 	@OneToMany (cascade=CascadeType.ALL)
 	@JoinColumn(name="idSolCompra")
-	private List<ArticuloBean> articulos;
+	private List<SolicitudArticuloBean> solicitudesArticulos;
 	
-	
-	
-	public SolicitudCompraBean(Integer idSolCompra, ArrayList<ArticuloBean> articulos) {
+	public SolicitudCompraBean(Integer idSolCompra, List<SolicitudArticuloBean> solicitudesArticulos) {
 		super();
 		this.idSolCompra = idSolCompra;
-		this.articulos = articulos;
+		this.solicitudesArticulos = solicitudesArticulos;
 	}
 	
 	public SolicitudCompraBean() {
 
 	}
 
-	public Integer getidSolCompra() {
+	public Integer getIdSolCompra() {
 		return idSolCompra;
 	}
 
-	public void setidSolCompra(Integer idSolCompra) {
+	public void setIdSolCompra(Integer idSolCompra) {
 		this.idSolCompra = idSolCompra;
 	}
 
-	public List<ArticuloBean> getArticulos() {
-		return articulos;
+	public List<SolicitudArticuloBean> getSolicitudesArticulos() {
+		return solicitudesArticulos;
 	}
 
-	public void setArticulos(List<ArticuloBean> articulos) {
-		this.articulos = articulos;
+	public void setSolicitudesArticulos(List<SolicitudArticuloBean> solicitudesArticulos) {
+		this.solicitudesArticulos = solicitudesArticulos;
 	}
 	
 }

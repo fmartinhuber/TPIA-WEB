@@ -49,7 +49,7 @@
             </li>
             
             <li><a href="SolicitudCompra.jsp">SOLICITUD DE COMPRA </a></li>
-            <li><a href="SolicitudArticulo.jsp">SOLICITUD DE ARTICULO </a></li>
+            <li><a href="EntregaArticulo.jsp">ENTREGA DE ARTICULO </a></li>
  
           </ul>
         </div><!--/.nav-collapse -->

@@ -104,7 +104,7 @@
 				 		<tr>
 				 			<td>Codigo</td>
 				 			<td>Nombre</td>
-				 			<td>Tipo</td>
+				 			<td>Marca</td>
 				 			<td>Cantidad</td>
 				 			<td>Fecha</td>
 				 		</tr>
