@@ -19,6 +19,6 @@ hs_err_pid*
 hibernate.properties
 
 # Sin archivos de .settings by Daro
-*.jdt.core.prefs
-*wst.common.component
-*wst.common.project.facet.core.xml
+*.jdt.core.prefs*
+*wst.common.component*
+*wst.common.project.facet.core.xml*
