@@ -12,16 +12,19 @@ public class SolicitudArticuloBean {
 	@JoinColumn(name="idSolArticulo")
 	private List<ArticuloBean> articulos;
 	private boolean cumplimiento; // (No cumplidas/Pendientes = FALSE - Cumplidas = TRUE)
+	private Date fecha;
 	
 	
 	
-	public SolicitudArticuloBean(Integer idSolArticulo, ArrayList<ArticuloBean> articulos, boolean cumplimiento) {
+	public SolicitudArticuloBean(Integer idSolArticulo, List<ArticuloBean> articulos, boolean cumplimiento,
+			Date fecha) {
 		super();
 		this.idSolArticulo = idSolArticulo;
 		this.articulos = articulos;
 		this.cumplimiento = cumplimiento;
+		this.fecha = fecha;
 	}
-	
+
 	public SolicitudArticuloBean() {
 
 	}
@@ -49,5 +52,22 @@ public class SolicitudArticuloBean {
 	public void setCumplimiento(boolean cumplimiento) {
 		this.cumplimiento = cumplimiento;
 	}
+
+	public Integer getIdSolArticulo() {
+		return idSolArticulo;
+	}
+
+	public void setIdSolArticulo(Integer idSolArticulo) {
+		this.idSolArticulo = idSolArticulo;
+	}
+
+	public Date getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+	
 	
 }
