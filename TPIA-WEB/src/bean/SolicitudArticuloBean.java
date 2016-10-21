@@ -7,12 +7,11 @@ import javax.persistence.*;
 @Entity
 public class SolicitudArticuloBean {
 	@Id
-	@Column(name="codigoSolArticulo")
 	private Integer idSolArticulo;
 	@OneToMany (cascade=CascadeType.ALL)
 	@JoinColumn(name="idSolArticulo")
 	private List<ArticuloBean> articulos;
-	private boolean cumplimiento;
+	private boolean cumplimiento; // (No cumplidas/Pendientes = FALSE - Cumplidas = TRUE)
 	
 	
 	

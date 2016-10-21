@@ -7,7 +7,6 @@ import javax.persistence.*;
 @Entity
 public class SolicitudCompraBean {
 	@Id
-	@Column(name="codigoSolCompra")
 	private Integer idSolCompra;
 	@OneToMany (cascade=CascadeType.ALL)
 	@JoinColumn(name="idSolCompra")
