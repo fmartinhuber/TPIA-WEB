@@ -12,6 +12,8 @@ public class SolicitudCompraBean {
 	@JoinColumn(name="idSolCompra")
 	private List<SolicitudArticuloBean> solicitudesArticulos;
 	
+	
+	
 	public SolicitudCompraBean(Integer idSolCompra, List<SolicitudArticuloBean> solicitudesArticulos) {
 		super();
 		this.idSolCompra = idSolCompra;
@@ -21,6 +23,8 @@ public class SolicitudCompraBean {
 	public SolicitudCompraBean() {
 
 	}
+	
+	
 
 	public Integer getIdSolCompra() {
 		return idSolCompra;

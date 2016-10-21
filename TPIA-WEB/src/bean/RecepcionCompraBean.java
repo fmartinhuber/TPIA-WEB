@@ -19,6 +19,8 @@ public class RecepcionCompraBean {
 
 	}
 	
+	
+	
 	public Integer getIdCompra() {
 		return idCompra;
 	}
