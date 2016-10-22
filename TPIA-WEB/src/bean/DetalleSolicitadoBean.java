@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 //Daro: Este Bean relaciona el articulo con la cantidad solicitada
 
-public class ArticuloSolicitadoBean {
+public class DetalleSolicitadoBean {
 	@Id
 	private Integer idArticuloSolicitado;
 	@OneToOne (cascade=CascadeType.ALL)
@@ -14,14 +14,14 @@ public class ArticuloSolicitadoBean {
 	private ArticuloBean articulo;
 	private Integer cantidad;
 	
-	public ArticuloSolicitadoBean(Integer idArticuloSolicitado, ArticuloBean articulo, Integer cantidad) {
+	public DetalleSolicitadoBean(Integer idArticuloSolicitado, ArticuloBean articulo, Integer cantidad) {
 		super();
 		this.idArticuloSolicitado = idArticuloSolicitado;
 		this.articulo = articulo;
 		this.cantidad = cantidad;
 	}
 	
-	public ArticuloSolicitadoBean() {
+	public DetalleSolicitadoBean() {
 		
 	}
 	
