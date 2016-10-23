@@ -5,6 +5,7 @@ import javax.persistence.*;
 //Daro: Este Bean relaciona el articulo con la cantidad solicitada
 
 @Entity
+@Table (name="DetalleSolicitado")
 public class DetalleSolicitadoBean {
 	@Id
 	private Integer idDetalleSolicitado;

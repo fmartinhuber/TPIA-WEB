@@ -5,6 +5,7 @@ import java.util.*;
 import javax.persistence.*;
 
 @Entity
+@Table (name="SolicitudCompra")
 public class SolicitudCompraBean {
 	@Id
 	private Integer idSolCompra;

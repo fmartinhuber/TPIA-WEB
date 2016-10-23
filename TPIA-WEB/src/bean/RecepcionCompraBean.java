@@ -3,6 +3,7 @@ package bean;
 import javax.persistence.*;
 
 @Entity
+@Table (name="RecepcionCompra")
 public class RecepcionCompraBean {
 	@Id
 	private Integer idCompra;

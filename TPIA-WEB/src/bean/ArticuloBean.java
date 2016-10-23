@@ -5,6 +5,7 @@ import javax.persistence.*;
 /*Daro: Todos los atributos de ArticuloBean fueron tomados del pdf de articulos en Web Campus*/
 
 @Entity
+@Table (name="Articulo")
 public class ArticuloBean {
 	@Id
 	private Integer idArticulo;

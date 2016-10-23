@@ -5,6 +5,7 @@ import java.util.*;
 import javax.persistence.*;
 
 @Entity
+@Table (name="SolicitudArticulo")
 public class SolicitudArticuloBean {
 	@Id
 	private Integer idSolArticulo;
