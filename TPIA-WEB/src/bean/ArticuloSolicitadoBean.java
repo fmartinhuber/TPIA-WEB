@@ -5,7 +5,7 @@ import java.util.List;
 import javax.persistence.*;
 
 //Daro: Este Bean relaciona el articulo con la cantidad solicitada
-
+@Entity
 public class ArticuloSolicitadoBean {
 	@Id
 	private Integer idArticuloSolicitado;

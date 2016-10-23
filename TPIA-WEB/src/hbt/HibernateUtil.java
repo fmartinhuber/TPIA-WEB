@@ -16,6 +16,7 @@ public class HibernateUtil{
              config.addAnnotatedClass(SolicitudCompraBean.class);
 			 //Aca cargar todos los otros bean
              
+             
              sessionFactory = config.buildSessionFactory();
         }
         catch (Throwable ex)

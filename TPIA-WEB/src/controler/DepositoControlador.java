@@ -1,5 +1,9 @@
 package controler;
 
+import java.util.List;
+
+import bean.ArticuloSolicitadoBean;
+
 //Prueba Daro 1er Commit
 
 /**
@@ -19,6 +23,10 @@ public class DepositoControlador {
 	}
 	
 	public DepositoControlador(){
-		
+
+	}
+	
+	public List <ArticuloSolicitadoBean> obtenerArticuloSolicitadoPendiente(){
+		return null;
 	}
 }
