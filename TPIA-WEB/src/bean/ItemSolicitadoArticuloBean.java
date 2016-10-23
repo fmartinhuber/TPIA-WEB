@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table (name="DetalleSolicitado")
-public class DetalleSolicitadoBean {
+public class ItemSolicitadoArticuloBean {
 	@Id
 	private Integer idDetalleSolicitado;
 	@OneToOne (cascade=CascadeType.ALL)
@@ -16,14 +16,14 @@ public class DetalleSolicitadoBean {
 		
 	
 
-	public DetalleSolicitadoBean(Integer idDetalleSolicitado, ArticuloBean articulo, Integer cantidad) {
+	public ItemSolicitadoArticuloBean(Integer idDetalleSolicitado, ArticuloBean articulo, Integer cantidad) {
 		super();
 		this.idDetalleSolicitado = idDetalleSolicitado;
 		this.articulo = articulo;
 		this.cantidad = cantidad;
 	}
 
-	public DetalleSolicitadoBean() {
+	public ItemSolicitadoArticuloBean() {
 		
 	}
 	

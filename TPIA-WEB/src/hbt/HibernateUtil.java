@@ -14,7 +14,7 @@ public class HibernateUtil{
              config.addAnnotatedClass(RecepcionCompraBean.class);
              config.addAnnotatedClass(SolicitudArticuloBean.class);
              config.addAnnotatedClass(SolicitudCompraBean.class);
-             config.addAnnotatedClass(DetalleSolicitadoBean.class);
+             config.addAnnotatedClass(ItemSolicitadoArticuloBean.class);
 			 //Aca cargar todos los otros bean
              
              

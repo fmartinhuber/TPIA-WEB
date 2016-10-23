@@ -12,16 +12,16 @@ public class SolicitudCompraBean {
 	@OneToMany (cascade=CascadeType.ALL)
 	@JoinColumn(name="idSolCompra")
 	private List<SolicitudArticuloBean> solicitudesArticulos;
-	private boolean cumplimiento; // (Recien enviada a fabrica = FALSE - Devuelta por fabrica = TRUE)
+	private Boolean pendiente; // (Recien enviada a fabrica = FALSE - Devuelta por fabrica = TRUE)
 	
 	
 	
 	public SolicitudCompraBean(Integer idSolCompra, List<SolicitudArticuloBean> solicitudesArticulos,
-			boolean cumplimiento) {
+			Boolean pendiente) {
 		super();
 		this.idSolCompra = idSolCompra;
 		this.solicitudesArticulos = solicitudesArticulos;
-		this.cumplimiento = cumplimiento;
+		this.pendiente = pendiente;
 	}
 
 	public SolicitudCompraBean() {
@@ -46,12 +46,12 @@ public class SolicitudCompraBean {
 		this.solicitudesArticulos = solicitudesArticulos;
 	}
 
-	public boolean isCumplimiento() {
-		return cumplimiento;
+	public boolean isPendiente() {
+		return pendiente;
 	}
 
-	public void setCumplimiento(boolean cumplimiento) {
-		this.cumplimiento = cumplimiento;
+	public void setPendiente(Boolean pendiente) {
+		this.pendiente = pendiente;
 	}
 	
 }
