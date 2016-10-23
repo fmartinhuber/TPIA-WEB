@@ -2,7 +2,8 @@ package controler;
 
 import java.util.List;
 
-import bean.ArticuloSolicitadoBean;
+import bean.SolicitudArticuloBean;
+import dao.SolicitudArticuloDao;
 
 //Prueba Daro 1er Commit
 
@@ -26,7 +27,7 @@ public class DepositoControlador {
 
 	}
 	
-	public List <ArticuloSolicitadoBean> obtenerArticuloSolicitadoPendiente(){
-		return null;
+	public List <SolicitudArticuloBean> obtenerArticuloSolicitadoPendiente(){
+		return SolicitudArticuloDao.getInstancia().obtenerArticulosPendientes();
 	}
 }
