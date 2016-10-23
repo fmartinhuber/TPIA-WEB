@@ -5,6 +5,7 @@ import javax.persistence.*;
 /*Daro: Todos los atributos de ArticuloBean fueron tomados del pdf de articulos en Web Campus*/
 
 @Entity
+@Table (name="Articulo")
 public class ArticuloBean {
 	@Id
 	private Integer idArticulo;
@@ -17,7 +18,9 @@ public class ArticuloBean {
 	private String origen;
 	private String fichaTecnica;
 	private Integer stockActual; //Atributo particular que manejamos por ser Deposito
-	private Integer stockSolicitado; //Este atributo es necesario para posteriormente calcular la cantidad de Articulos a pedir
+	private Integer stockSolicitado; 	/*Este atributo es necesario para posteriormente calcular la cantidad de Articulos a pedir.
+	 									Es el stock que se desea tener en el deposito. Se carga al momento del alta y queda fijo*/
+										
 	
 	
 

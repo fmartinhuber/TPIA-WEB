@@ -47,14 +47,7 @@
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
-	$(document).on("change", "#estadoSol", function() {
-		var estado = document.getElementById('estadoSol').value;
-		$.get("Ventana2Servlet", {opcion: estado}, function(responseText) {
-			var obtenido = responseText;
-			//Trabajar obtenido hasta conseguir poner todo en la tabla
-			
-		});
-	});
+	
 </script>
 
 
@@ -88,25 +81,21 @@
 			    	<!--<h1>SOLICITUD DE ARTICULO - ESTO LO HACE: DARO</h1>-->
 			    	<!--<h5>ACA HACE TU MAGIA </h5>-->
 			    	
-			    	<table>
-				 		<tr>
-					 		<td>
-					 			Seleccione estado Solicitud de Articulo:   
-						 		<select id="estadoSol" name="estadoSol">
-									<option value="seleccione">Seleccione...</option>
-									<option value="cumplidas">Cumplidas</option>
-									<option value="pendientes">Pendientes</option>
-								</select>
-							</td>
-						</tr>
-					</table>
-					<table>
+			    	<table id=SolicitudArticulo>
+			    		<tr>
+			    			<td></td>
+			    		
+			    		</tr>
+			    	</table>
+			    	
+			    	
+					<table id=DetalleSolicitado>
 				 		<tr>
 				 			<td>Codigo</td>
 				 			<td>Nombre</td>
 				 			<td>Marca</td>
+				 			<td>Precio</td>
 				 			<td>Cantidad</td>
-				 			<td>Fecha</td>
 				 		</tr>
 				 	</table>
 				 	
