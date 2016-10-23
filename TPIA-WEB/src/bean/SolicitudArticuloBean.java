@@ -10,17 +10,17 @@ public class SolicitudArticuloBean {
 	private Integer idSolArticulo;
 	@OneToMany (cascade=CascadeType.ALL)
 	@JoinColumn(name="idSolArticulo")
-	private List<DetalleSolicitadoBean> detalleSolicitado;
+	private List<DetalleSolicitadoBean> detalle;
 	private boolean cumplimiento; // (No cumplidas/Pendientes = FALSE - Cumplidas = TRUE)
 	private Date fecha;
 	
 	
 
-	public SolicitudArticuloBean(Integer idSolArticulo, List<DetalleSolicitadoBean> detalleSolicitado,
-			boolean cumplimiento, Date fecha) {
+	public SolicitudArticuloBean(Integer idSolArticulo, List<DetalleSolicitadoBean> detalle, boolean cumplimiento,
+			Date fecha) {
 		super();
 		this.idSolArticulo = idSolArticulo;
-		this.detalleSolicitado = detalleSolicitado;
+		this.detalle = detalle;
 		this.cumplimiento = cumplimiento;
 		this.fecha = fecha;
 	}
@@ -39,12 +39,12 @@ public class SolicitudArticuloBean {
 		this.idSolArticulo = idSolArticulo;
 	}
 
-	public List<DetalleSolicitadoBean> getDetalleSolicitado() {
-		return detalleSolicitado;
+	public List<DetalleSolicitadoBean> getDetalle() {
+		return detalle;
 	}
 
-	public void setDetalleSolicitado(List<DetalleSolicitadoBean> detalleSolicitado) {
-		this.detalleSolicitado = detalleSolicitado;
+	public void setDetalle(List<DetalleSolicitadoBean> detalle) {
+		this.detalle = detalle;
 	}
 
 	public boolean isCumplimiento() {

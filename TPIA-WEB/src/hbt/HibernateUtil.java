@@ -14,6 +14,7 @@ public class HibernateUtil{
              config.addAnnotatedClass(RecepcionCompraBean.class);
              config.addAnnotatedClass(SolicitudArticuloBean.class);
              config.addAnnotatedClass(SolicitudCompraBean.class);
+             config.addAnnotatedClass(DetalleSolicitadoBean.class);
 			 //Aca cargar todos los otros bean
              
              sessionFactory = config.buildSessionFactory();

@@ -1,38 +1,39 @@
 package bean;
 
-import java.util.List;
-
 import javax.persistence.*;
 
 //Daro: Este Bean relaciona el articulo con la cantidad solicitada
 
+@Entity
 public class DetalleSolicitadoBean {
 	@Id
-	private Integer idArticuloSolicitado;
+	private Integer idDetalleSolicitado;
 	@OneToOne (cascade=CascadeType.ALL)
-	@JoinColumn(name="idArticuloSolicitado")
+	@JoinColumn(name="idDetalleSolicitado")
 	private ArticuloBean articulo;
 	private Integer cantidad;
+		
 	
-	public DetalleSolicitadoBean(Integer idArticuloSolicitado, ArticuloBean articulo, Integer cantidad) {
+
+	public DetalleSolicitadoBean(Integer idDetalleSolicitado, ArticuloBean articulo, Integer cantidad) {
 		super();
-		this.idArticuloSolicitado = idArticuloSolicitado;
+		this.idDetalleSolicitado = idDetalleSolicitado;
 		this.articulo = articulo;
 		this.cantidad = cantidad;
 	}
-	
+
 	public DetalleSolicitadoBean() {
 		
 	}
 	
 	
 
-	public Integer getIdArticuloSolicitado() {
-		return idArticuloSolicitado;
+	public Integer getIdDetalleSolicitado() {
+		return idDetalleSolicitado;
 	}
 
-	public void setIdArticuloSolicitado(Integer idArticuloSolicitado) {
-		this.idArticuloSolicitado = idArticuloSolicitado;
+	public void setIdDetalleSolicitado(Integer idDetalleSolicitado) {
+		this.idDetalleSolicitado = idDetalleSolicitado;
 	}
 
 	public ArticuloBean getArticulo() {
