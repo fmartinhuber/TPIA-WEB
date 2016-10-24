@@ -9,7 +9,7 @@ public class InsertBaseDeDatos {
 		//Metodo para limpiar la base
 		DepositoDao.getInstancia().prueba();
 
-		//Carga de objetos para persistir en la base
+		//Carga de objetos para persistir en la base 
 		
 	}
 }
