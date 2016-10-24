@@ -1,7 +1,11 @@
 <!-- SOLICITUD DE COMPRA - ESTO LO HACE: MARTIN -->
 
+<%@page import="controler.DepositoControlador"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import="java.util.List" %>
+<%@ page import="controler.DepositoControlador" %>
+<%@ page import="bean.SolicitudArticuloBean" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
  <head>
@@ -46,16 +50,29 @@
       </div>
     </div>
     
+    <form action="SolicitudCompraServlet" method="POST">
     <div id="headerwrap">
 	    <div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2">
-			    	<h1>SOLICITUD DE COMPRA - ESTO LO HACE: MARTIN</h1>
-			    	<h5>ACA HACE TU MAGIA </h5>
+			    	<h1>SOLICITUD DE COMPRA</h1>
+			    	
+			    	<% List <SolicitudArticuloBean> listado = DepositoControlador.getInstancia().obtenerArticuloSolicitadoPendiente(); %>
+			    	<table>
+			    		<% for(int i = 0;i<listado.size();i++){
+			    			SolicitudArticuloBean solicitud = listado.get(i);
+						%>	
+			    		<tr><td>Solicitud Nro: <%  solicitud.getIdSolArticulo(); %></td>
+			    			<td>Nombre: <% solicitud.getDetalle(); %> <input type="checkbox" name="metodo" id="metodo" ></td>
+			    		</tr>
+			    		<% } %>
+			    	</table>
+			    	
     		</div><!-- /row -->
 	    </div> <!-- /container -->
 	</div><!-- /headerwrap -->
-    
+    </div>
+    </form>
     
 </body>
 </html>
