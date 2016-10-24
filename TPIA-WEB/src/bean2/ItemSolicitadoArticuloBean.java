@@ -1,24 +1,24 @@
-package bean;
+package bean2;
 
 import javax.persistence.*;
 
 //Daro: Este Bean relaciona el articulo con la cantidad solicitada
 
 @Entity
-@Table (name="ItemSolicitadoArticulo")
+@Table (name="DetalleSolicitado")
 public class ItemSolicitadoArticuloBean {
 	@Id
-	private Integer idItemSolicitadoArticulo;
-	@OneToOne (cascade=CascadeType.ALL)
+	private Integer idDetalleSolicitado;
+	@ManyToOne (cascade=CascadeType.ALL) // Carlos: Corrijo relación, podes tener muchos items de solicitud para el mismo articulo.
 	@JoinColumn(name="idDetalleSolicitado")
 	private ArticuloBean articulo;
 	private Integer cantidad;
 		
 	
 
-	public ItemSolicitadoArticuloBean(Integer idItemSolicitadoArticulo, ArticuloBean articulo, Integer cantidad) {
+	public ItemSolicitadoArticuloBean(Integer idDetalleSolicitado, ArticuloBean articulo, Integer cantidad) {
 		super();
-		this.idItemSolicitadoArticulo = idItemSolicitadoArticulo;
+		this.idDetalleSolicitado = idDetalleSolicitado;
 		this.articulo = articulo;
 		this.cantidad = cantidad;
 	}
@@ -27,14 +27,14 @@ public class ItemSolicitadoArticuloBean {
 		
 	}
 	
-
 	
-	public Integer getIdItemSolicitadoArticulo() {
-		return idItemSolicitadoArticulo;
+
+	public Integer getIdDetalleSolicitado() {
+		return idDetalleSolicitado;
 	}
 
-	public void setIdItemSolicitadoArticulo(Integer idItemSolicitadoArticulo) {
-		this.idItemSolicitadoArticulo = idItemSolicitadoArticulo;
+	public void setIdDetalleSolicitado(Integer idDetalleSolicitado) {
+		this.idDetalleSolicitado = idDetalleSolicitado;
 	}
 
 	public ArticuloBean getArticulo() {
