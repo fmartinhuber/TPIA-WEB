@@ -8,36 +8,35 @@ import javax.persistence.*;
 @Table (name="SolicitudCompra")
 public class SolicitudCompraBean {
 	@Id
-	private Integer idSolCompra;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Integer idSolicitudCompra;
 	private String codigo; //Este atributo identifica univocamente al objeto, el id lo manejamos para nuestra base
 	@OneToMany (cascade=CascadeType.ALL)
 	@JoinColumn(name="idSolCompra")
 	private List<SolicitudArticuloBean> solicitudesArticulos;
 	private Boolean pendiente; // (Recien enviada a fabrica = FALSE - Devuelta por fabrica = TRUE)
 	
-		
+	
 
-	public SolicitudCompraBean(Integer idSolCompra, String codigo, List<SolicitudArticuloBean> solicitudesArticulos,
-			Boolean pendiente) {
+	public SolicitudCompraBean(String codigo, List<SolicitudArticuloBean> solicitudesArticulos, Boolean pendiente) {
 		super();
-		this.idSolCompra = idSolCompra;
 		this.codigo = codigo;
 		this.solicitudesArticulos = solicitudesArticulos;
 		this.pendiente = pendiente;
 	}
-
+	
 	public SolicitudCompraBean() {
 
 	}
 	
 	
-	
-	public Integer getIdSolCompra() {
-		return idSolCompra;
+
+	public Integer getIdSolicitudCompra() {
+		return idSolicitudCompra;
 	}
 
-	public void setIdSolCompra(Integer idSolCompra) {
-		this.idSolCompra = idSolCompra;
+	public void setIdSolicitudCompra(Integer idSolicitudCompra) {
+		this.idSolicitudCompra = idSolicitudCompra;
 	}
 
 	public List<SolicitudArticuloBean> getSolicitudesArticulos() {

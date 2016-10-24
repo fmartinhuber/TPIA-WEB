@@ -11,10 +11,13 @@ public class HibernateUtil{
         try{
         	 AnnotationConfiguration config = new AnnotationConfiguration();
              config.addAnnotatedClass(ArticuloBean.class);
+             config.addAnnotatedClass(ItemRecepcionCompra.class);
+             config.addAnnotatedClass(ItemSolicitadoArticuloBean.class);
+             config.addAnnotatedClass(ItemSolicitudCompraBean.class);
+             config.addAnnotatedClass(MovimientoStockBean.class);
              config.addAnnotatedClass(RecepcionCompraBean.class);
              config.addAnnotatedClass(SolicitudArticuloBean.class);
-             config.addAnnotatedClass(SolicitudCompraBean.class);
-             config.addAnnotatedClass(ItemSolicitadoArticuloBean.class);
+             config.addAnnotatedClass(SolicitudCompraBean.class);             
 			 //Aca cargar todos los otros bean
              
              

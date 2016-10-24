@@ -6,17 +6,17 @@ import javax.persistence.*;
 @Table (name="RecepcionCompra")
 public class RecepcionCompraBean {
 	@Id
-	private Integer idCompra;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Integer idRecepcionCompra;
 	private String codigo; //Este atributo identifica univocamente al objeto, el id lo manejamos para nuestra base
 	@OneToOne (cascade=CascadeType.ALL)
-	@JoinColumn(name="codigo")
+	@JoinColumn(name="idSolicitudCompra")
 	private SolicitudCompraBean solicitudCompra;
 	
 
-	
-	public RecepcionCompraBean(Integer idCompra, String codigo, SolicitudCompraBean solicitudCompra) {
+
+	public RecepcionCompraBean(String codigo, SolicitudCompraBean solicitudCompra) {
 		super();
-		this.idCompra = idCompra;
 		this.codigo = codigo;
 		this.solicitudCompra = solicitudCompra;
 	}
@@ -27,12 +27,14 @@ public class RecepcionCompraBean {
 	
 	
 	
-	public Integer getIdCompra() {
-		return idCompra;
+	public Integer getIdRecepcionCompra() {
+		return idRecepcionCompra;
 	}
-	public void setIdCompra(Integer idCompra) {
-		this.idCompra = idCompra;
+
+	public void setIdRecepcionCompra(Integer idRecepcionCompra) {
+		this.idRecepcionCompra = idRecepcionCompra;
 	}
+
 	public SolicitudCompraBean getSolicitudCompra() {
 		return solicitudCompra;
 	}

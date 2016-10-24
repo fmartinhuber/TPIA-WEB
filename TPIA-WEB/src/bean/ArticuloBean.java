@@ -8,6 +8,7 @@ import javax.persistence.*;
 @Table (name="Articulo")
 public class ArticuloBean {
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer idArticulo;
 	private String nombre;
 	private String codigo;
@@ -20,15 +21,11 @@ public class ArticuloBean {
 	private Integer stockActual; //Atributo particular que manejamos por ser Deposito
 	private Integer stockSolicitado; 	/*Este atributo es necesario para posteriormente calcular la cantidad de Articulos a pedir.
 	 									Es el stock que se desea tener en el deposito. Se carga al momento del alta y queda fijo*/
-										
 	
 	
-
-	public ArticuloBean(Integer idArticulo, String nombre, String codigo, String descripcion, String marca,
-			float precio, boolean foto, String origen, String fichaTecnica, Integer stockActual,
-			Integer stockSolicitado) {
+	public ArticuloBean(String nombre, String codigo, String descripcion, String marca, float precio, boolean foto,
+			String origen, String fichaTecnica, Integer stockActual, Integer stockSolicitado) {
 		super();
-		this.idArticulo = idArticulo;
 		this.nombre = nombre;
 		this.codigo = codigo;
 		this.descripcion = descripcion;
@@ -44,7 +41,6 @@ public class ArticuloBean {
 	public ArticuloBean(){
 		
 	}
-
 
 
 	public Integer getIdArticulo() {

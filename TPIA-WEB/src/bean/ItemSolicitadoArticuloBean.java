@@ -8,6 +8,7 @@ import javax.persistence.*;
 @Table (name="ItemSolicitadoArticulo")
 public class ItemSolicitadoArticuloBean {
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer idItemSolicitadoArticulo;
 	@OneToOne (cascade=CascadeType.ALL)
 	@JoinColumn(name="idDetalleSolicitado")
@@ -16,9 +17,8 @@ public class ItemSolicitadoArticuloBean {
 		
 	
 
-	public ItemSolicitadoArticuloBean(Integer idItemSolicitadoArticulo, ArticuloBean articulo, Integer cantidad) {
+	public ItemSolicitadoArticuloBean(ArticuloBean articulo, Integer cantidad) {
 		super();
-		this.idItemSolicitadoArticulo = idItemSolicitadoArticulo;
 		this.articulo = articulo;
 		this.cantidad = cantidad;
 	}

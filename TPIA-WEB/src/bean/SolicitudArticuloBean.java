@@ -8,7 +8,8 @@ import javax.persistence.*;
 @Table (name="SolicitudArticulo")
 public class SolicitudArticuloBean {
 	@Id
-	private Integer idSolArticulo;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Integer idSolicitudArticulo;
 	private String codigo; //Este atributo identifica univocamente al objeto, el id lo manejamos para nuestra base
 	@OneToMany (cascade=CascadeType.ALL)
 	@JoinColumn(name="idSolArticulo")
@@ -17,11 +18,10 @@ public class SolicitudArticuloBean {
 	private Date fecha;
 	
 	
-
-	public SolicitudArticuloBean(Integer idSolArticulo, String codigo, List<ItemSolicitadoArticuloBean> detalle,
-			Boolean pendiente, Date fecha) {
+	
+	public SolicitudArticuloBean(String codigo, List<ItemSolicitadoArticuloBean> detalle, Boolean pendiente,
+			Date fecha) {
 		super();
-		this.idSolArticulo = idSolArticulo;
 		this.codigo = codigo;
 		this.detalle = detalle;
 		this.pendiente = pendiente;
@@ -34,12 +34,12 @@ public class SolicitudArticuloBean {
 	
 	
 
-	public Integer getidSolArticulo() {
-		return idSolArticulo;
+	public Integer getIdSolicitudArticulo() {
+		return idSolicitudArticulo;
 	}
 
-	public void setidSolArticulo(Integer idSolArticulo) {
-		this.idSolArticulo = idSolArticulo;
+	public void setIdSolicitudArticulo(Integer idSolicitudArticulo) {
+		this.idSolicitudArticulo = idSolicitudArticulo;
 	}
 
 	public List<ItemSolicitadoArticuloBean> getDetalle() {
@@ -56,14 +56,6 @@ public class SolicitudArticuloBean {
 
 	public void setCumplimiento(Boolean pendiente) {
 		this.pendiente = pendiente;
-	}
-
-	public Integer getIdSolArticulo() {
-		return idSolArticulo;
-	}
-
-	public void setIdSolArticulo(Integer idSolArticulo) {
-		this.idSolArticulo = idSolArticulo;
 	}
 
 	public Date getFecha() {
