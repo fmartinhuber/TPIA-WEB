@@ -20,9 +20,17 @@ public class DepositoDao{
 		return instancia;
 	}
 	
+	
+	
+	
+	
+	
+	
+	
 	public void prueba(){
 		Session session = sf.openSession();
 		session.beginTransaction();
+		System.out.println("Metodo de prueba utilizado. Por favor no borrar");
 	}
 	
 }
