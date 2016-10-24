@@ -88,9 +88,11 @@
 			    			<td>Fecha</td>
 			    		</tr>
 			    	</table>
+			    	<br><br>
 			    	
+			    	Solicitud Seleccionada: <input type="text" name="solicitudSeleccionada" readonly>
 			    	
-			    			    	
+			    	<br><br>
 			    	Articulos
 					<table id=DetalleSolicitado>
 				 		<tr>
