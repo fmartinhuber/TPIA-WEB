@@ -66,6 +66,10 @@
 			    			<td>Nombre: <% solicitud.getDetalle(); %> <input type="checkbox" name="metodo" id="metodo" ></td>
 			    		</tr>
 			    		<% } %>
+			    		<tr>
+							<td align="center"><input type="submit" value="Aceptar" onClick="enviar();"></td>
+							<td align="center"><input type="reset" value="Cancelar"></td>
+						</tr>
 			    	</table>
 			    	
     		</div><!-- /row -->
