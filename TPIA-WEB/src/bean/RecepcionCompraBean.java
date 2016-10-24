@@ -1,5 +1,7 @@
 package bean;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -12,19 +14,24 @@ public class RecepcionCompraBean {
 	@OneToOne (cascade=CascadeType.ALL)
 	@JoinColumn(name="idSolicitudCompra")
 	private SolicitudCompraBean solicitudCompra;
+	@OneToMany (cascade=CascadeType.ALL)
+	@JoinColumn(name="idItemRecepcionCompra")
+	private List<ItemRecepcionCompra> recepcionesCompra;
 	
-
-
-	public RecepcionCompraBean(String codigo, SolicitudCompraBean solicitudCompra) {
+	
+	
+	public RecepcionCompraBean(String codigo, SolicitudCompraBean solicitudCompra,
+			List<ItemRecepcionCompra> recepcionesCompra) {
 		super();
 		this.codigo = codigo;
 		this.solicitudCompra = solicitudCompra;
+		this.recepcionesCompra = recepcionesCompra;
 	}
 
 	public RecepcionCompraBean() {
-
+		super();
 	}
-	
+
 	
 	
 	public Integer getIdRecepcionCompra() {
@@ -35,13 +42,6 @@ public class RecepcionCompraBean {
 		this.idRecepcionCompra = idRecepcionCompra;
 	}
 
-	public SolicitudCompraBean getSolicitudCompra() {
-		return solicitudCompra;
-	}
-	public void setSolicitudCompra(SolicitudCompraBean solicitudCompra) {
-		this.solicitudCompra = solicitudCompra;
-	}
-
 	public String getCodigo() {
 		return codigo;
 	}
@@ -49,5 +49,21 @@ public class RecepcionCompraBean {
 	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
-	
+
+	public SolicitudCompraBean getSolicitudCompra() {
+		return solicitudCompra;
+	}
+
+	public void setSolicitudCompra(SolicitudCompraBean solicitudCompra) {
+		this.solicitudCompra = solicitudCompra;
+	}
+
+	public List<ItemRecepcionCompra> getRecepcionesCompra() {
+		return recepcionesCompra;
+	}
+
+	public void setRecepcionesCompra(List<ItemRecepcionCompra> recepcionesCompra) {
+		this.recepcionesCompra = recepcionesCompra;
+	}
+
 }

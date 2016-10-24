@@ -14,45 +14,34 @@ public class SolicitudCompraBean {
 	@OneToMany (cascade=CascadeType.ALL)
 	@JoinColumn(name="idSolicitudArticulo")
 	private List<SolicitudArticuloBean> solicitudesArticulos;
+	@OneToMany (cascade=CascadeType.ALL)
+	@JoinColumn(name="ItemSolicitudCompra")
+	private List<ItemSolicitudCompraBean> solicitudesCompra;
 	private Boolean pendiente; // (Recien enviada a fabrica = FALSE - Devuelta por fabrica = TRUE)
 	
 	
-
-	public SolicitudCompraBean(String codigo, List<SolicitudArticuloBean> solicitudesArticulos, Boolean pendiente) {
+	
+	public SolicitudCompraBean(String codigo, List<SolicitudArticuloBean> solicitudesArticulos,
+			List<ItemSolicitudCompraBean> solicitudesCompra, Boolean pendiente) {
 		super();
 		this.codigo = codigo;
 		this.solicitudesArticulos = solicitudesArticulos;
+		this.solicitudesCompra = solicitudesCompra;
 		this.pendiente = pendiente;
 	}
-	
+
 	public SolicitudCompraBean() {
-
+		super();
 	}
-	
-	
 
+	
+	
 	public Integer getIdSolicitudCompra() {
 		return idSolicitudCompra;
 	}
 
 	public void setIdSolicitudCompra(Integer idSolicitudCompra) {
 		this.idSolicitudCompra = idSolicitudCompra;
-	}
-
-	public List<SolicitudArticuloBean> getSolicitudesArticulos() {
-		return solicitudesArticulos;
-	}
-
-	public void setSolicitudesArticulos(List<SolicitudArticuloBean> solicitudesArticulos) {
-		this.solicitudesArticulos = solicitudesArticulos;
-	}
-
-	public boolean isPendiente() {
-		return pendiente;
-	}
-
-	public void setPendiente(Boolean pendiente) {
-		this.pendiente = pendiente;
 	}
 
 	public String getCodigo() {
@@ -63,8 +52,28 @@ public class SolicitudCompraBean {
 		this.codigo = codigo;
 	}
 
+	public List<SolicitudArticuloBean> getSolicitudesArticulos() {
+		return solicitudesArticulos;
+	}
+
+	public void setSolicitudesArticulos(List<SolicitudArticuloBean> solicitudesArticulos) {
+		this.solicitudesArticulos = solicitudesArticulos;
+	}
+
+	public List<ItemSolicitudCompraBean> getSolicitudesCompra() {
+		return solicitudesCompra;
+	}
+
+	public void setSolicitudesCompra(List<ItemSolicitudCompraBean> solicitudesCompra) {
+		this.solicitudesCompra = solicitudesCompra;
+	}
+
 	public Boolean getPendiente() {
 		return pendiente;
+	}
+
+	public void setPendiente(Boolean pendiente) {
+		this.pendiente = pendiente;
 	}
 	
 }
