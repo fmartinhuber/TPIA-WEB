@@ -9,6 +9,7 @@ import javax.persistence.*;
 public class SolicitudArticuloBean {
 	@Id
 	private Integer idSolArticulo;
+	private String codigo; //Este atributo identifica univocamente al objeto, el id lo manejamos para nuestra base
 	@OneToMany (cascade=CascadeType.ALL)
 	@JoinColumn(name="idSolArticulo")
 	private List<ItemSolicitadoArticuloBean> detalle;
@@ -17,10 +18,11 @@ public class SolicitudArticuloBean {
 	
 	
 
-	public SolicitudArticuloBean(Integer idSolArticulo, List<ItemSolicitadoArticuloBean> detalle, Boolean pendiente,
-			Date fecha) {
+	public SolicitudArticuloBean(Integer idSolArticulo, String codigo, List<ItemSolicitadoArticuloBean> detalle,
+			Boolean pendiente, Date fecha) {
 		super();
 		this.idSolArticulo = idSolArticulo;
+		this.codigo = codigo;
 		this.detalle = detalle;
 		this.pendiente = pendiente;
 		this.fecha = fecha;
@@ -71,6 +73,21 @@ public class SolicitudArticuloBean {
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
-	
+
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+
+	public Boolean getPendiente() {
+		return pendiente;
+	}
+
+	public void setPendiente(Boolean pendiente) {
+		this.pendiente = pendiente;
+	}
 	
 }

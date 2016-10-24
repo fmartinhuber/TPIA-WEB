@@ -5,10 +5,10 @@ import javax.persistence.*;
 //Daro: Este Bean relaciona el articulo con la cantidad solicitada
 
 @Entity
-@Table (name="DetalleSolicitado")
+@Table (name="ItemSolicitadoArticulo")
 public class ItemSolicitadoArticuloBean {
 	@Id
-	private Integer idDetalleSolicitado;
+	private Integer idItemSolicitadoArticulo;
 	@OneToOne (cascade=CascadeType.ALL)
 	@JoinColumn(name="idDetalleSolicitado")
 	private ArticuloBean articulo;
@@ -16,9 +16,9 @@ public class ItemSolicitadoArticuloBean {
 		
 	
 
-	public ItemSolicitadoArticuloBean(Integer idDetalleSolicitado, ArticuloBean articulo, Integer cantidad) {
+	public ItemSolicitadoArticuloBean(Integer idItemSolicitadoArticulo, ArticuloBean articulo, Integer cantidad) {
 		super();
-		this.idDetalleSolicitado = idDetalleSolicitado;
+		this.idItemSolicitadoArticulo = idItemSolicitadoArticulo;
 		this.articulo = articulo;
 		this.cantidad = cantidad;
 	}
@@ -27,14 +27,14 @@ public class ItemSolicitadoArticuloBean {
 		
 	}
 	
-	
 
-	public Integer getIdDetalleSolicitado() {
-		return idDetalleSolicitado;
+	
+	public Integer getIdItemSolicitadoArticulo() {
+		return idItemSolicitadoArticulo;
 	}
 
-	public void setIdDetalleSolicitado(Integer idDetalleSolicitado) {
-		this.idDetalleSolicitado = idDetalleSolicitado;
+	public void setIdItemSolicitadoArticulo(Integer idItemSolicitadoArticulo) {
+		this.idItemSolicitadoArticulo = idItemSolicitadoArticulo;
 	}
 
 	public ArticuloBean getArticulo() {
