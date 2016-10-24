@@ -81,14 +81,17 @@
 			    	<!--<h1>SOLICITUD DE ARTICULO - ESTO LO HACE: DARO</h1>-->
 			    	<!--<h5>ACA HACE TU MAGIA </h5>-->
 			    	
+			    	Solicitud de Articulos
 			    	<table id=SolicitudArticulo>
 			    		<tr>
-			    			<td></td>
-			    		
+			    			<td>Codigo</td>
+			    			<td>Fecha</td>
 			    		</tr>
 			    	</table>
 			    	
 			    	
+			    			    	
+			    	Articulos
 					<table id=DetalleSolicitado>
 				 		<tr>
 				 			<td>Codigo</td>

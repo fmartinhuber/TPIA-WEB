@@ -12,7 +12,7 @@ public class SolicitudCompraBean {
 	private Integer idSolicitudCompra;
 	private String codigo; //Este atributo identifica univocamente al objeto, el id lo manejamos para nuestra base
 	@OneToMany (cascade=CascadeType.ALL)
-	@JoinColumn(name="idSolCompra")
+	@JoinColumn(name="idSolicitudArticulo")
 	private List<SolicitudArticuloBean> solicitudesArticulos;
 	private Boolean pendiente; // (Recien enviada a fabrica = FALSE - Devuelta por fabrica = TRUE)
 	
