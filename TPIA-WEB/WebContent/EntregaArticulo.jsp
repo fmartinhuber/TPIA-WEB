@@ -47,7 +47,13 @@
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
-	
+	$(document).on("click", "#obtSolPen", function(){
+		var accion = "obtSolPen";
+		$.get("EntregaArticuloServlet", {opcion: accion}, function(responseText) {
+			var obtenido = responseText;
+			alert (obtenido)
+		});
+	});
 </script>
 
 
@@ -67,7 +73,7 @@
         </div>
         <div class="navbar-collapse collapse navbar-right">
           <ul class="nav navbar-nav">
-          	<li><a href="SolicitudArticulo.jsp">SOLICITUD DE ARTICULO </a></li>
+          	<li><a href="EntregaArticulo.jsp">ENTREGA DE ARTICULO </a></li>
             <li class="active"><a href="index.jsp">MENU PRINCIPAL</a></li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -80,6 +86,9 @@
 				<div class="col-lg-8 col-lg-offset-2">
 			    	<!--<h1>SOLICITUD DE ARTICULO - ESTO LO HACE: DARO</h1>-->
 			    	<!--<h5>ACA HACE TU MAGIA </h5>-->
+			    	
+			    	<input type="submit" id="obtSolPen" name="obtenerSolicitudesPendientes" value="Obtener Solicitudes Pendientes">
+			    	<br><br>
 			    	
 			    	Solicitud de Articulos
 			    	<table id=SolicitudArticulo>
