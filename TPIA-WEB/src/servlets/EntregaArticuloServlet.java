@@ -38,7 +38,7 @@ public class EntregaArticuloServlet extends HttpServlet  {
 			//Aca se armaria una unica respuesta desde la base, por ser hardcodeado comparo con G12JO5I1
 			if (solicitudABuscar.equalsIgnoreCase("G12JO5I1")){
 				//Parametros: Codigo;Nombre;Descripcion;Cantidad
-				String articulosHardcore = "G12890471;Aire Acondicionado Split WBC 12B-13B 2645 F/C;4 modos de operación diferentes: Frío, deshumidificación, ventilación y calor;2-G1268671;Freezer Horizontal Eternity M210;202 Lt;8";
+				String articulosHardcore = "G12890471;Aire Acondicionado Split WBC 12B-13B 2645 F/C;4 modos de operación diferentes: Frío, deshumidificación, ventilación y calor;2;Cumplido-G1268671;Freezer Horizontal Eternity M210;202 Lt;8;Stock Insuficiente";
 				response.getWriter().write(articulosHardcore);
 			}
 			

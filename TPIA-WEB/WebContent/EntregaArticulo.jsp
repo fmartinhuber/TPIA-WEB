@@ -43,7 +43,7 @@
     
 </head>
 
- 
+
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
@@ -131,10 +131,11 @@
 			    	Articulos
 					<table id=DetalleSolicitado>
 				 		<tr>
-				 			<td>Codigo</td><td></td>
+				 			<td>Codigo</td>
 				 			<td>Nombre</td>
 				 			<td>Descripcion</td>
 				 			<td>Cantidad</td>
+				 			<td>Cumplimiento</td>
 				 		</tr>
 				 	</table>
 				 	
