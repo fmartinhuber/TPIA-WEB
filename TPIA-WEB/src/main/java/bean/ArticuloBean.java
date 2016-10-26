@@ -43,6 +43,7 @@ public class ArticuloBean {
 	}
 
 
+	
 	public Integer getIdArticulo() {
 		return idArticulo;
 	}
