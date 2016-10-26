@@ -47,13 +47,40 @@
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
-	$(document).on("click", "#obtSolPen", function(){
+	$(document).ready(function(){
 		var accion = "obtSolPen";
 		$.get("EntregaArticuloServlet", {opcion: accion}, function(responseText) {
 			var obtenido = responseText;
-			alert (obtenido)
+			var obtParseRow = obtenido.split("-");
+
+			$('#SolicitudArticulo tr').not(':first').remove();
+			var html = '';
+			for(var i=0; i < Object.keys(obtParseRow).length; i++){
+				var obtParseColumn = obtParseRow[i].split(";");
+				html += '<tr><td>' + obtParseColumn[0] + '</td><td>' + obtParseColumn[1] + '</td></tr>';
+			}
+			$('#SolicitudArticulo tr').first().after(html);
+				
 		});
+
 	});
+
+
+	
+	//Funca solo el titulo con esto
+	/*$(document).ready(function(){
+	    $('table tbody tr').click(function(){
+	        alert($(this).text());
+	    });
+	});*/
+
+	//Intento casero que no llego a ningun lado
+	$(document).on("click", "#obtSolPen", function(){
+		var rowindex = $(this).closest('tr').index();
+	    console.debug('rowindex', rowindex);
+	});
+
+	//Tengo que agregar un boton o radiobuttom con onchange a la tabla de solicitudes y hacerlo de esa manera
 </script>
 
 
@@ -86,9 +113,6 @@
 				<div class="col-lg-8 col-lg-offset-2">
 			    	<!--<h1>SOLICITUD DE ARTICULO - ESTO LO HACE: DARO</h1>-->
 			    	<!--<h5>ACA HACE TU MAGIA </h5>-->
-			    	
-			    	<input type="submit" id="obtSolPen" name="obtenerSolicitudesPendientes" value="Obtener Solicitudes Pendientes">
-			    	<br><br>
 			    	
 			    	Solicitud de Articulos
 			    	<table id=SolicitudArticulo>
