@@ -113,6 +113,12 @@
 			<artifactId>hibernate</artifactId>
 			<version>3.2.3.ga</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-core</artifactId>
+		    <version>3.6.3.Final</version>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-annotations -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -126,7 +132,7 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<sourceDirectory>src</sourceDirectory>
+		<sourceDirectory>/src/main/java</sourceDirectory>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
