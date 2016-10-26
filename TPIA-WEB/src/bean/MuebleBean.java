@@ -2,6 +2,8 @@ package bean;
 
 import javax.persistence.*;
 
+import dao.MuebleDao;
+
 @Entity
 public class MuebleBean extends ArticuloBean{
 
@@ -10,7 +12,7 @@ public class MuebleBean extends ArticuloBean{
 	public MuebleBean(){}
 
 	public MuebleBean(String nombre, String codigo, String descripcion, String marca, float precio, String foto,
-			String origen, String fichaTecnica, Integer stockActual, Integer stockSolicitado, String material) {
+			String origen, Integer stockActual, Integer stockSolicitado, String material) {
 		super(nombre, codigo, descripcion, marca, precio, foto, origen, stockActual, stockSolicitado);
 		this.material = material;
 	}
@@ -24,6 +26,22 @@ public class MuebleBean extends ArticuloBean{
 	};
 	
 	
+	
+	public void mergeMueble(){
+		MuebleDao.getInstancia().merge(this);
+	}
+	
+	public void persistMueble(){
+		MuebleDao.getInstancia().persist(this);
+	}
+	
+	public void updateMueble(){
+		MuebleDao.getInstancia().update(this);
+	}
+	
+	public void deleteMueble(){
+		MuebleDao.getInstancia().delete(this);
+	}
 	
 }
 

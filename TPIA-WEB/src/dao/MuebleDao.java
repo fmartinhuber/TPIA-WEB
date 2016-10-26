@@ -4,28 +4,28 @@ import java.util.List;
 
 import org.hibernate.Session;
 
-import bean.ArticuloBean;
+import bean.*;
 import hbt.HibernateUtil;
 
-public class ArticuloDao extends HibernateDao{
+public class MuebleDao extends HibernateDao{
 
-	public static ArticuloDao instancia;
+	public static MuebleDao instancia;
 	
-	private ArticuloDao(){}
+	private MuebleDao(){}
 	
-	public static ArticuloDao getInstancia(){
+	public static MuebleDao getInstancia(){
 		if(instancia == null)
-			instancia = new ArticuloDao();
+			instancia = new MuebleDao();
 		return instancia;
 	}
 	
 	
-	public List<ArticuloBean> listarArticulos(){
+	public List<MuebleBean> listarArticulos(){
 		Session s = HibernateUtil.getSessionFactory().openSession();
 		@SuppressWarnings("unchecked")
-		List<ArticuloBean> articulos = (List<ArticuloBean>)s.createQuery("from Articulo").list();
+		List<MuebleBean> muebles = (List<MuebleBean>)s.createQuery("from Articulo").list();
 		s.close();
-		return articulos;
+		return muebles;
 	}
 	
 	

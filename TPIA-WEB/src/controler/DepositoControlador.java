@@ -2,9 +2,8 @@ package controler;
 
 import java.util.List;
 
-import bean.ArticuloBean;
-import bean.SolicitudArticuloBean;
-import dao.SolicitudArticuloDao;
+import bean.*;
+import dao.*;
 
 //Prueba Daro 1er Commit
 

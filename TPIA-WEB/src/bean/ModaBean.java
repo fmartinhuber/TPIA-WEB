@@ -11,7 +11,7 @@ public class ModaBean extends ArticuloBean {
 	public ModaBean(){}
 
 	public ModaBean(String nombre, String codigo, String descripcion, String marca, float precio, String foto,
-			String origen, String fichaTecnica, Integer stockActual, Integer stockSolicitado, String color,
+			String origen, Integer stockActual, Integer stockSolicitado, String color,
 			String talle) {
 		super(nombre, codigo, descripcion, marca, precio, foto, origen, stockActual, stockSolicitado);
 		this.color = color;

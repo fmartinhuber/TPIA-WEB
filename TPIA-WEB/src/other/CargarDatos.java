@@ -1,9 +1,6 @@
 package other;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import bean.ArticuloBean;
+import bean.*;
 
 public class CargarDatos {
 
@@ -28,6 +25,15 @@ public class CargarDatos {
 //		
 //		articulo001.persistArticulo();
 //		articulo002.persistArticulo();
+		
+		
+		/********************/
+		
+		//MuebleBean muebles = new MuebleBean(nombre, codigo, descripcion, marca, precio, foto, origen, stockActual, stockSolicitado, material)
+		
+		MuebleBean muebles01 = new MuebleBean("mueble01", "codigo01", "descripcion01", "marca01", 1000, "1", "origen01", 1000, 1000, "material01");
+		
+		muebles01.persistArticulo();
 		
 	}
 	

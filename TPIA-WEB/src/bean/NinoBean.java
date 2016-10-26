@@ -10,7 +10,7 @@ public class NinoBean extends ArticuloBean{
 	public NinoBean(){}
 
 	public NinoBean(String nombre, String codigo, String descripcion, String marca, float precio, String foto,
-			String origen, String fichaTecnica, Integer stockActual, Integer stockSolicitado, Integer edadRecomendada) {
+			String origen, Integer stockActual, Integer stockSolicitado, Integer edadRecomendada) {
 		super(nombre, codigo, descripcion, marca, precio, foto, origen, stockActual, stockSolicitado);
 		this.edadRecomendada = edadRecomendada;
 	}

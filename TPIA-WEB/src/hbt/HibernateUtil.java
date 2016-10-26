@@ -18,7 +18,12 @@ public class HibernateUtil{
              config.addAnnotatedClass(MovimientoStockBean.class);
              config.addAnnotatedClass(RecepcionCompraBean.class);
              config.addAnnotatedClass(SolicitudArticuloBean.class);
-             config.addAnnotatedClass(SolicitudCompraBean.class);             
+             config.addAnnotatedClass(SolicitudCompraBean.class);
+             
+             config.addAnnotatedClass(ElectrodomesticoBean.class);  
+             config.addAnnotatedClass(NinoBean.class);  
+             config.addAnnotatedClass(ModaBean.class);  
+             config.addAnnotatedClass(MuebleBean.class);  
              
              
              sessionFactory = config.buildSessionFactory();
