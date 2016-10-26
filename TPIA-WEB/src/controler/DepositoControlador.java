@@ -2,6 +2,7 @@ package controler;
 
 import java.util.List;
 
+import bean.ArticuloBean;
 import bean.SolicitudArticuloBean;
 import dao.SolicitudArticuloDao;
 
@@ -30,4 +31,14 @@ public class DepositoControlador {
 	public List <SolicitudArticuloBean> obtenerArticuloSolicitadoPendiente(){
 		return SolicitudArticuloDao.getInstancia().obtenerArticulosPendientes();
 	}
+	
+	
+	public void crearArticulo(){
+		
+		ArticuloBean articulo = new ArticuloBean();
+		
+		
+		
+	}
+	
 }

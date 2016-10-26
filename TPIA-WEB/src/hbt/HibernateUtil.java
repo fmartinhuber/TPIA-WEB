@@ -10,6 +10,7 @@ public class HibernateUtil{
     static{
         try{
         	 AnnotationConfiguration config = new AnnotationConfiguration();
+        	 
              config.addAnnotatedClass(ArticuloBean.class);
              config.addAnnotatedClass(ItemRecepcionCompra.class);
              config.addAnnotatedClass(ItemSolicitadoArticuloBean.class);
@@ -18,7 +19,6 @@ public class HibernateUtil{
              config.addAnnotatedClass(RecepcionCompraBean.class);
              config.addAnnotatedClass(SolicitudArticuloBean.class);
              config.addAnnotatedClass(SolicitudCompraBean.class);             
-			 //Aca cargar todos los otros bean
              
              
              sessionFactory = config.buildSessionFactory();

@@ -2,6 +2,8 @@ package bean;
 
 import javax.persistence.*;
 
+import dao.ArticuloDao;
+
 /*Daro: Todos los atributos de ArticuloBean fueron tomados del pdf de articulos en Web Campus*/
 
 @Entity
@@ -129,6 +131,23 @@ public class ArticuloBean {
 
 	public void setStockSolicitado(Integer stockSolicitado) {
 		this.stockSolicitado = stockSolicitado;
+	}
+	
+	
+	public void mergeArticulo(){
+		ArticuloDao.getInstancia().merge(this);
+	}
+	
+	public void persistArticulo(){
+		ArticuloDao.getInstancia().persist(this);
+	}
+	
+	public void updateArticulo(){
+		ArticuloDao.getInstancia().update(this);
+	}
+	
+	public void deleteArticulo(){
+		ArticuloDao.getInstancia().delete(this);
 	}
 	
 }
