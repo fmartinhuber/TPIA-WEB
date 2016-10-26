@@ -58,30 +58,30 @@
 			for(var i=0; i < Object.keys(obtParseRow).length; i++){
 				var obtParseColumn = obtParseRow[i].split(";");
 				html += '<tr><td>' + obtParseColumn[0] + '</td><td>' + obtParseColumn[1] + '</td></tr>';
+				//De esta forma cargo la tabla con un radiobutton pero no me da bola por cargarse antes de futuros clicks
+				//html += '<tr><td>' + obtParseColumn[0] + '</td><td>' + obtParseColumn[1] + '</td>';
+				//html += '<td><div class="radio"><input type="radio" name="selectSolRadio" id="selectSolRadio value="'+i+'"></div></td></tr>';
 			}
 			$('#SolicitudArticulo tr').first().after(html);
-				
 		});
-
 	});
 
+	$(document).ready(function() {
+		$("#obtArticulos").click(function() {
+			var accion = "obtArticulos";
+			var valorSolBuscada = $('#solicitudSeleccionada').val();
 
-	
-	//Funca solo el titulo con esto
-	/*$(document).ready(function(){
-	    $('table tbody tr').click(function(){
-	        alert($(this).text());
-	    });
-	});*/
+			$.get("EntregaArticuloServlet", {opcion: accion, solicitudBuscada: valorSolBuscada}, function(responseText) {
+				var obtenido = responseText;
+				var obtParseRow = obtenido.split("-");
 
-	//Intento casero que no llego a ningun lado
-	$(document).on("click", "#obtSolPen", function(){
-		var rowindex = $(this).closest('tr').index();
-	    console.debug('rowindex', rowindex);
+				
+			});
+		});
 	});
 
-	//Tengo que agregar un boton o radiobuttom con onchange a la tabla de solicitudes y hacerlo de esa manera
 </script>
+
 
 
 
@@ -119,11 +119,13 @@
 			    		<tr>
 			    			<td>Codigo</td>
 			    			<td>Fecha</td>
+			    			<!--<td>Seleccione</td>-->
 			    		</tr>
 			    	</table>
 			    	<br><br>
 			    	
-			    	Solicitud Seleccionada: <input type="text" name="solicitudSeleccionada" readonly>
+			    	Solicitud de Articulos: <input type="text" name="solicitudSeleccionada" id="solicitudSeleccionada">
+			    	<button type="button" id="obtArticulos" name="obtArticulos">Obtener Articulos</button>
 			    	
 			    	<br><br>
 			    	Articulos
@@ -131,8 +133,7 @@
 				 		<tr>
 				 			<td>Codigo</td><td></td>
 				 			<td>Nombre</td>
-				 			<td>Marca</td>
-				 			<td>Precio</td>
+				 			<td>Descripcion</td>
 				 			<td>Cantidad</td>
 				 		</tr>
 				 	</table>
