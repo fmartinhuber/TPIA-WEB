@@ -22,4 +22,7 @@ public class JAXRSAppREST {
 	public String saludo(String nombre) {
 		return "Hola " + nombre;
 	}
+	
+	
+	
 }

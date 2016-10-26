@@ -57,15 +57,7 @@
 				<div class="col-lg-8 col-lg-offset-2">
 			    	<h1>SOLICITUD DE COMPRA</h1>
 			    	
-			    	<% List <SolicitudArticuloBean> listado = DepositoControlador.getInstancia().obtenerArticuloSolicitadoPendiente(); %>
 			    	<table>
-			    		<% for(int i = 0;i<listado.size();i++){
-			    			SolicitudArticuloBean solicitud = listado.get(i);
-						%>	
-			    		<tr><td>Solicitud Nro: <%  solicitud.getIdSolArticulo(); %></td>
-			    			<td>Nombre: <% solicitud.getDetalle(); %> <input type="checkbox" name="metodo" id="metodo" ></td>
-			    		</tr>
-			    		<% } %>
 			    		<tr>
 							<td align="center"><input type="submit" value="Aceptar" onClick="enviar();"></td>
 							<td align="center"><input type="reset" value="Cancelar"></td>

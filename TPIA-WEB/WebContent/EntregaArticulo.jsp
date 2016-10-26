@@ -96,14 +96,13 @@
 			    	Articulos
 					<table id=DetalleSolicitado>
 				 		<tr>
-				 			<td>Codigo</td>
+				 			<td>Codigo</td><td></td>
 				 			<td>Nombre</td>
 				 			<td>Marca</td>
 				 			<td>Precio</td>
 				 			<td>Cantidad</td>
 				 		</tr>
 				 	</table>
-				 	
 				 	
 				 	
 				 </div><!-- col -lg-8 -->

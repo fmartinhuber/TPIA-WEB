@@ -34,6 +34,7 @@ public class SolicitudCompraServlet extends HttpServlet {
 		SolicitudCompraBean solicitudCompraBean = new SolicitudCompraBean();
 		
 		DepositoControlador.getInstancia();
+		
 	}
 
 	/**
