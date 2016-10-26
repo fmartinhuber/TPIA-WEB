@@ -3,6 +3,7 @@ package bean;
 import javax.persistence.*;
 
 @Entity
+@DiscriminatorValue("MOD")
 public class ModaBean extends ArticuloBean {
 
 	private String color;
@@ -11,9 +12,9 @@ public class ModaBean extends ArticuloBean {
 	public ModaBean(){}
 
 	public ModaBean(String nombre, String codigo, String descripcion, String marca, float precio, String foto,
-			String origen, Integer stockActual, Integer stockSolicitado, String color,
+			String origen, String tipo, Integer stockActual, Integer stockSolicitado, String color,
 			String talle) {
-		super(nombre, codigo, descripcion, marca, precio, foto, origen, stockActual, stockSolicitado);
+		super(nombre, codigo, descripcion, marca, precio, foto, origen, tipo, stockActual, stockSolicitado);
 		this.color = color;
 		this.talle = talle;
 	}

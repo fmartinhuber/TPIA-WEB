@@ -5,6 +5,7 @@ import javax.persistence.*;
 import dao.MuebleDao;
 
 @Entity
+@DiscriminatorValue("MUE")
 public class MuebleBean extends ArticuloBean{
 
 	private String material;
@@ -12,8 +13,8 @@ public class MuebleBean extends ArticuloBean{
 	public MuebleBean(){}
 
 	public MuebleBean(String nombre, String codigo, String descripcion, String marca, float precio, String foto,
-			String origen, Integer stockActual, Integer stockSolicitado, String material) {
-		super(nombre, codigo, descripcion, marca, precio, foto, origen, stockActual, stockSolicitado);
+			String origen, String tipo, Integer stockActual, Integer stockSolicitado, String material) {
+		super(nombre, codigo, descripcion, marca, precio, foto, origen, tipo, stockActual, stockSolicitado);
 		this.material = material;
 	}
 

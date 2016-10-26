@@ -24,7 +24,7 @@ public class DepositoDao extends HibernateDao{
 	public void prueba(){
 		Session session = sf.openSession();
 		session.beginTransaction();
-		System.out.println("Metodo de prueba utilizado. Por favor no borrar");
+		System.out.println("Metodo de prueba utilizado. Por favor no borrar. Sirve para cargar las tablas en la BD");
 	}
 	
 }
