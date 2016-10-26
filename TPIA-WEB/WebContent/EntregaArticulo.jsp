@@ -47,7 +47,40 @@
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
+	$(document).ready(function(){
+		var accion = "obtSolPen";
+		$.get("EntregaArticuloServlet", {opcion: accion}, function(responseText) {
+			var obtenido = responseText;
+			var obtParseRow = obtenido.split("-");
+
+			$('#SolicitudArticulo tr').not(':first').remove();
+			var html = '';
+			for(var i=0; i < Object.keys(obtParseRow).length; i++){
+				var obtParseColumn = obtParseRow[i].split(";");
+				html += '<tr><td>' + obtParseColumn[0] + '</td><td>' + obtParseColumn[1] + '</td></tr>';
+			}
+			$('#SolicitudArticulo tr').first().after(html);
+				
+		});
+
+	});
+
+
 	
+	//Funca solo el titulo con esto
+	/*$(document).ready(function(){
+	    $('table tbody tr').click(function(){
+	        alert($(this).text());
+	    });
+	});*/
+
+	//Intento casero que no llego a ningun lado
+	$(document).on("click", "#obtSolPen", function(){
+		var rowindex = $(this).closest('tr').index();
+	    console.debug('rowindex', rowindex);
+	});
+
+	//Tengo que agregar un boton o radiobuttom con onchange a la tabla de solicitudes y hacerlo de esa manera
 </script>
 
 
@@ -67,7 +100,7 @@
         </div>
         <div class="navbar-collapse collapse navbar-right">
           <ul class="nav navbar-nav">
-          	<li><a href="SolicitudArticulo.jsp">SOLICITUD DE ARTICULO </a></li>
+          	<li><a href="EntregaArticulo.jsp">ENTREGA DE ARTICULO </a></li>
             <li class="active"><a href="index.jsp">MENU PRINCIPAL</a></li>
           </ul>
         </div><!--/.nav-collapse -->
