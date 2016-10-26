@@ -58,30 +58,36 @@
 			for(var i=0; i < Object.keys(obtParseRow).length; i++){
 				var obtParseColumn = obtParseRow[i].split(";");
 				html += '<tr><td>' + obtParseColumn[0] + '</td><td>' + obtParseColumn[1] + '</td></tr>';
+				//De esta forma cargo la tabla con un radiobutton pero no me da bola por cargarse antes de futuros clicks
+				//html += '<tr><td>' + obtParseColumn[0] + '</td><td>' + obtParseColumn[1] + '</td>';
+				//html += '<td><div class="radio"><input type="radio" name="selectSolRadio" id="selectSolRadio value="'+i+'"></div></td></tr>';
 			}
 			$('#SolicitudArticulo tr').first().after(html);
-				
 		});
+	});
+ 
+	$(document).ready(function() {
+		$("#obtArticulos").click(function() {
+			var accion = "obtArticulos";
+			var valorSolBuscada = $('#solicitudSeleccionada').val();
 
+			$.get("EntregaArticuloServlet", {opcion: accion, solicitudBuscada: valorSolBuscada}, function(responseText) {
+				var obtenido = responseText;
+				var obtParseRow = obtenido.split("-");
+				
+				$('#DetalleSolicitado tr').not(':first').remove();
+				var html = '';
+				for(var i=0; i < Object.keys(obtParseRow).length; i++){
+					var obtParseColumn = obtParseRow[i].split(";");
+					html += '<tr><td>' + obtParseColumn[0] + '</td><td>' + obtParseColumn[1] + '</td><td>' + obtParseColumn[2] + '</td><td>' + obtParseColumn[3] + '</td><td>' + obtParseColumn[4] + '</td></tr>'; 
+				}
+				$('#DetalleSolicitado tr').first().after(html);
+			});
+		});
 	});
 
-
-	
-	//Funca solo el titulo con esto
-	/*$(document).ready(function(){
-	    $('table tbody tr').click(function(){
-	        alert($(this).text());
-	    });
-	});*/
-
-	//Intento casero que no llego a ningun lado
-	$(document).on("click", "#obtSolPen", function(){
-		var rowindex = $(this).closest('tr').index();
-	    console.debug('rowindex', rowindex);
-	});
-
-	//Tengo que agregar un boton o radiobuttom con onchange a la tabla de solicitudes y hacerlo de esa manera
 </script>
+
 
 
 
@@ -119,24 +125,37 @@
 			    		<tr>
 			    			<td>Codigo</td>
 			    			<td>Fecha</td>
+			    			<!--<td>Seleccione</td>-->
 			    		</tr>
 			    	</table>
 			    	<br><br>
 			    	
-			    	Solicitud Seleccionada: <input type="text" name="solicitudSeleccionada" readonly>
+			    	Codigo Solicitud de Articulos: <input type="text" name="solicitudSeleccionada" id="solicitudSeleccionada">
+			    	<button type="button" id="obtArticulos" name="obtArticulos">Obtener Articulos</button>
 			    	
 			    	<br><br>
-			    	Articulos
+			    	Articulos de la Solicitud <input type="text" name="solicitudMuestra" id=""solicitudMuestra" readonly>
 					<table id=DetalleSolicitado>
 				 		<tr>
-				 			<td>Codigo</td><td></td>
+				 			<td>Codigo</td>
 				 			<td>Nombre</td>
-				 			<td>Marca</td>
-				 			<td>Precio</td>
+				 			<td>Descripcion</td>
 				 			<td>Cantidad</td>
+				 			<td>Cumplimiento</td>
 				 		</tr>
 				 	</table>
 				 	
+				 	<br><br>
+				 	<hr>
+				 	<br><br>
+				 	
+				 	<h4>Modificacion de Cantidades</h4>
+				 	
+				 	Codigo Articulo: <input type="text" name="modificarArticulo" id=""modificarArticulo">
+				 	<button type="button" id="obtModifArticulos" name="obtModifArticulos">Modificar Articulo</button><br>
+				 	Cantidad Solicitada: <input type="text" name="cantSolicitadaArticulo" id=""cantSolicitadaArticulo" readonly><br>
+				 	Nueva cantidad a solicitar: <input type="text" name="nuevaCantidadArticulo" id=""nuevaCantidadArticulo"><br>
+				 	<button type="button" id="modificarArticulo" name="modificarArticulo">Aceptar</button><br>
 				 	
 				 </div><!-- col -lg-8 -->
     		</div><!-- /row -->
