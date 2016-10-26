@@ -4,11 +4,17 @@ import javax.persistence.*;
 
 import dao.ArticuloDao;
 
-/*Daro: Todos los atributos de ArticuloBean fueron tomados del pdf de articulos en Web Campus*/
+/*	
+ *	Daro: Todos los atributos de ArticuloBean fueron tomados del pdf de articulos en Web Campus
+	Rama: hay 4 tipos de articulo, se separará con el identificador "Tipo"
+	 
+*/
+
 
 @Entity
 @Table (name="Articulo")
-public class ArticuloBean {
+public abstract class ArticuloBean {
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer idArticulo;
@@ -17,16 +23,16 @@ public class ArticuloBean {
 	private String descripcion;
 	private String marca;
 	private float precio;
-	private boolean foto; //Se toma foto como boolean ya que no es nuestra funcion como Deposito almacenar/mostrar fotos de los Articulos
+	private String foto; 
 	private String origen;
-	private String fichaTecnica;
-	private Integer stockActual; //Atributo particular que manejamos por ser Deposito
-	private Integer stockSolicitado; 	/*Este atributo es necesario para posteriormente calcular la cantidad de Articulos a pedir.
-	 									Es el stock que se desea tener en el deposito. Se carga al momento del alta y queda fijo*/
+	//protected String fichaTecnica;	
+	private Integer stockActual; 		// 	Atributo particular que manejamos por ser Deposito
+	private Integer stockSolicitado; 	/* 	Este atributo es necesario para posteriormente calcular la cantidad de Articulos a pedir.
+	 										Es el stock que se desea tener en el deposito. Se carga al momento del alta y queda fijo*/
 	
 	
-	public ArticuloBean(String nombre, String codigo, String descripcion, String marca, float precio, boolean foto,
-			String origen, String fichaTecnica, Integer stockActual, Integer stockSolicitado) {
+	public ArticuloBean(String nombre, String codigo, String descripcion, String marca, float precio, String foto,
+			String origen, Integer stockActual, Integer stockSolicitado) {
 		super();
 		this.nombre = nombre;
 		this.codigo = codigo;
@@ -35,7 +41,7 @@ public class ArticuloBean {
 		this.precio = precio;
 		this.foto = foto;
 		this.origen = origen;
-		this.fichaTecnica = fichaTecnica;
+		//this.fichaTecnica = fichaTecnica;
 		this.stockActual = stockActual;
 		this.stockSolicitado = stockSolicitado;
 	}
@@ -93,11 +99,11 @@ public class ArticuloBean {
 		this.precio = precio;
 	}
 
-	public boolean isFoto() {
+	public String isFoto() {
 		return foto;
 	}
 
-	public void setFoto(boolean foto) {
+	public void setFoto(String foto) {
 		this.foto = foto;
 	}
 
@@ -109,13 +115,13 @@ public class ArticuloBean {
 		this.origen = origen;
 	}
 
-	public String getFichaTecnica() {
-		return fichaTecnica;
-	}
-
-	public void setFichaTecnica(String fichaTecnica) {
-		this.fichaTecnica = fichaTecnica;
-	}
+//	public String getFichaTecnica() {
+//		return fichaTecnica;
+//	}
+//
+//	public void setFichaTecnica(String fichaTecnica) {
+//		this.fichaTecnica = fichaTecnica;
+//	}
 
 	public Integer getStockActual() {
 		return stockActual;

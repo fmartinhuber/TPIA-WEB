@@ -35,7 +35,7 @@ public class DepositoControlador {
 	
 	public void crearArticulo(){
 		
-		ArticuloBean articulo = new ArticuloBean();
+		//ArticuloBean articulo = new ArticuloBean();
 		
 		
 		
