@@ -1,13 +1,11 @@
 package dao;
 
-import javax.persistence.EntityManager;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import hbt.HibernateUtil;
 
-public class DepositoDao{
+public class DepositoDao extends HibernateDao{
 
 	private static DepositoDao instancia = null;
 	private static SessionFactory sf = null;
@@ -20,11 +18,7 @@ public class DepositoDao{
 		return instancia;
 	}
 	
-	
-	
-	
-	
-	
+
 	
 	
 	public void prueba(){
