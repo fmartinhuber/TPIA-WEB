@@ -33,6 +33,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
+            
           </button>
           <a class="navbar-brand" href="index.jsp">Grupo 12 - Deposito</a>
         </div>
