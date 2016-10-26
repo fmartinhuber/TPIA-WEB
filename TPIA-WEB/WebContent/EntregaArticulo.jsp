@@ -65,7 +65,7 @@
 			$('#SolicitudArticulo tr').first().after(html);
 		});
 	});
-
+ 
 	$(document).ready(function() {
 		$("#obtArticulos").click(function() {
 			var accion = "obtArticulos";
