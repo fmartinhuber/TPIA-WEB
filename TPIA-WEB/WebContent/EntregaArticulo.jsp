@@ -50,12 +50,13 @@
 	$(document).ready(function(){
 		var accion = "obtSolPen";
 		$.get("EntregaArticuloServlet", {opcion: accion}, function(responseText) {
+			//Populo la tabla Solicitudes de Articulo
 			var obtenido = responseText;
-			var obtParseRow = obtenido.split("-");
+			var obtParseRow = obtenido.split("-??");
 			$('#SolicitudArticulo tr').not(':first').remove();
 			var html = '';
 			for(var i=0; i < Object.keys(obtParseRow).length; i++){
-				var obtParseColumn = obtParseRow[i].split(";");
+				var obtParseColumn = obtParseRow[i].split(";?");
 				html += '<tr><td>' + obtParseColumn[0] + '</td><td>' + obtParseColumn[1] + '</td></tr>';
 				//De esta forma cargo la tabla con un radiobutton pero no me da bola por cargarse antes de futuros clicks
 				//html += '<tr><td>' + obtParseColumn[0] + '</td><td>' + obtParseColumn[1] + '</td>';
@@ -66,19 +67,28 @@
 	});
 	$(document).ready(function() {
 		$("#obtArticulos").click(function() {
+			//Populo la tabla Articulos a pedido de busqueda
 			var accion = "obtArticulos";
 			var valorSolBuscada = $('#solicitudSeleccionada').val();
 			$.get("EntregaArticuloServlet", {opcion: accion, solicitudBuscada: valorSolBuscada}, function(responseText) {
 				var obtenido = responseText;
-				var obtParseRow = obtenido.split("-");
-				
-				$('#DetalleSolicitado tr').not(':first').remove();
-				var html = '';
-				for(var i=0; i < Object.keys(obtParseRow).length; i++){
-					var obtParseColumn = obtParseRow[i].split(";");
-					html += '<tr><td>' + obtParseColumn[0] + '</td><td>' + obtParseColumn[1] + '</td><td>' + obtParseColumn[2] + '</td><td>' + obtParseColumn[3] + '</td><td>' + obtParseColumn[4] + '</td></tr>'; 
+				var obtParseRow = obtenido.split("-??");
+
+				//Si trajo datos muestro, sino alerta
+				if (obtenido.trim()){
+					//Seteo la solicitud utilizada como informacion en textfield readonly
+					$("#solicitudMuestra").val(valorSolBuscada);
+
+					$('#DetalleSolicitado tr').not(':first').remove();
+					var html = '';
+					for(var i=0; i < Object.keys(obtParseRow).length; i++){
+						var obtParseColumn = obtParseRow[i].split(";?");
+						html += '<tr><td>' + obtParseColumn[0] + '</td><td>' + obtParseColumn[1] + '</td><td>' + obtParseColumn[2] + '</td><td>' + obtParseColumn[3] + '</td><td>' + obtParseColumn[4] + '</td></tr>'; 
+					}
+					$('#DetalleSolicitado tr').first().after(html);
+				}else{
+					alert("No se encontro la solicitud ingresada");
 				}
-				$('#DetalleSolicitado tr').first().after(html);
 			});
 		});
 	});
@@ -130,7 +140,7 @@
 			    	<button type="button" id="obtArticulos" name="obtArticulos">Obtener Articulos</button>
 			    	
 			    	<br><br>
-			    	Articulos de la Solicitud <input type="text" name="solicitudMuestra" id=""solicitudMuestra" readonly>
+			    	Articulos de la Solicitud <input type="text" name="solicitudMuestra" id="solicitudMuestra" disabled readonly>
 					<table id=DetalleSolicitado>
 				 		<tr>
 				 			<td>Codigo</td>
@@ -147,10 +157,10 @@
 				 	
 				 	<h4>Modificacion de Cantidades</h4>
 				 	
-				 	Codigo Articulo: <input type="text" name="modificarArticulo" id=""modificarArticulo">
+				 	Codigo Articulo: <input type="text" name="modificarArticulo" id="modificarArticulo">
 				 	<button type="button" id="obtModifArticulos" name="obtModifArticulos">Modificar Articulo</button><br>
-				 	Cantidad Solicitada: <input type="text" name="cantSolicitadaArticulo" id=""cantSolicitadaArticulo" readonly><br>
-				 	Nueva cantidad a solicitar: <input type="text" name="nuevaCantidadArticulo" id=""nuevaCantidadArticulo"><br>
+				 	Cantidad Solicitada: <input type="text" name="cantSolicitadaArticulo" id="cantSolicitadaArticulo" readonly><br>
+				 	Nueva cantidad a solicitar: <input type="text" name="nuevaCantidadArticulo" id="nuevaCantidadArticulo"><br>
 				 	<button type="button" id="modificarArticulo" name="modificarArticulo">Aceptar</button><br>
 				 	
 				 </div><!-- col -lg-8 -->
