@@ -26,6 +26,8 @@ public class TestRama {
 		  
 		 LISTAR MUEBLES
 		 
+		 */
+		 
 		DepositoControlador dc = new DepositoControlador();
 		
 		List<MuebleBean> muebles = dc.listarMuebles();
@@ -39,7 +41,7 @@ public class TestRama {
 		}
 		
 		
-		*/
+		
 		
 		
 		/*
@@ -48,20 +50,20 @@ public class TestRama {
 		 * 
 		 */
 		
-		ArticuloBean newArticulo = new ArticuloBean();
-		
-		newArticulo.setCodigo("codigo03");
-		newArticulo.setDescripcion("descripcion03");
-		newArticulo.setFoto("foto03");
-		newArticulo.setMarca("marca03");
-		newArticulo.setNombre("nombre03");
-		newArticulo.setOrigen("origen03");
-		newArticulo.setPrecio(3000);
-		newArticulo.setStockActual(3000);
-		newArticulo.setStockSolicitado(3000);
-		newArticulo.setTipo("MUE");
-		
-		DepositoControlador.getInstancia().crearArticulo(newArticulo);
+//		ArticuloBean newArticulo = new ArticuloBean();
+//		
+//		newArticulo.setCodigo("codigo03");
+//		newArticulo.setDescripcion("descripcion03");
+//		newArticulo.setFoto("foto03");
+//		newArticulo.setMarca("marca03");
+//		newArticulo.setNombre("nombre03");
+//		newArticulo.setOrigen("origen03");
+//		newArticulo.setPrecio(3000);
+//		newArticulo.setStockActual(3000);
+//		newArticulo.setStockSolicitado(3000);
+//		newArticulo.setTipo("MUE");
+//		
+//		DepositoControlador.getInstancia().crearArticulo(newArticulo);
 		
 	}
 
