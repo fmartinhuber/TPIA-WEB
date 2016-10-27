@@ -47,10 +47,10 @@
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
+	//Tabla Solicitudes de Articulos al iniciar la pagina
 	$(document).ready(function(){
 		var accion = "obtSolPen";
 		$.get("EntregaArticuloServlet", {opcion: accion}, function(responseText) {
-			//Populo la tabla Solicitudes de Articulo
 			var obtenido = responseText;
 			var obtParseRow = obtenido.split("-??");
 			$('#SolicitudArticulo tr').not(':first').remove();
@@ -58,16 +58,17 @@
 			for(var i=0; i < Object.keys(obtParseRow).length; i++){
 				var obtParseColumn = obtParseRow[i].split(";?");
 				html += '<tr><td>' + obtParseColumn[0] + '</td><td>' + obtParseColumn[1] + '</td></tr>';
-				//De esta forma cargo la tabla con un radiobutton pero no me da bola por cargarse antes de futuros clicks
+				//De esta forma cargo la tabla con un radiobutton pero no me da bola por cargarse antes de futuros clicks dinamicos
 				//html += '<tr><td>' + obtParseColumn[0] + '</td><td>' + obtParseColumn[1] + '</td>';
 				//html += '<td><div class="radio"><input type="radio" name="selectSolRadio" id="selectSolRadio value="'+i+'"></div></td></tr>';
 			}
 			$('#SolicitudArticulo tr').first().after(html);
 		});
 	});
+
+	//Tabla Articulos al momento de busqueda
 	$(document).ready(function() {
 		$("#obtArticulos").click(function() {
-			//Populo la tabla Articulos a pedido de busqueda
 			var accion = "obtArticulos";
 			var valorSolBuscada = $('#solicitudSeleccionada').val();
 			$.get("EntregaArticuloServlet", {opcion: accion, solicitudBuscada: valorSolBuscada}, function(responseText) {
@@ -76,7 +77,7 @@
 
 				//Si trajo datos muestro, sino alerta
 				if (obtenido.trim()){
-					//Seteo la solicitud utilizada como informacion en textfield readonly
+					//Seteo la solicitud utilizada como informacion en textfield disabled
 					$("#solicitudMuestra").val(valorSolBuscada);
 
 					$('#DetalleSolicitado tr').not(':first').remove();
@@ -90,6 +91,17 @@
 					alert("No se encontro la solicitud ingresada");
 				}
 			});
+		});
+	});
+
+	//Modificacion de cantidad de Articulo
+	$(document).ready(function() {
+		$("#obtModifArticulos").click(function() {
+			//Obtener la cantidad ingresada y mostrarla
+			//Obtener la nueva cantidad
+			//Validar numerico
+			//Enviar al servlet, este al dao, y que este actualice la cantidad en su objeto y base
+			//Si se desea ver la actualizacion tienen que volver a consultar los Articulos de la Solicitud
 		});
 	});
 </script>
