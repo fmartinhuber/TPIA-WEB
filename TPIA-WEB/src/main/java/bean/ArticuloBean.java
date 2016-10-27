@@ -19,19 +19,19 @@ public class ArticuloBean {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer idArticulo;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String nombre;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String codigo;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String descripcion;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String marca;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private float precio;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String foto;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String origen;
 
 	@Transient
@@ -39,10 +39,10 @@ public class ArticuloBean {
 	private String tipo;
 
 	// protected String fichaTecnica;
-	@Column(nullable=true)
+	@Column(nullable = true)
 	private Integer stockActual; // Atributo particular que manejamos por ser
 									// Deposito
-	@Column(nullable=true)
+	@Column(nullable = true)
 	private Integer stockSolicitado; /*
 										 * Este atributo es necesario para
 										 * posteriormente calcular la cantidad

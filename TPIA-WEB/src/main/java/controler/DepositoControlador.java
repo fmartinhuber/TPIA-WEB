@@ -81,4 +81,22 @@ public class DepositoControlador {
 
 	}
 
+	public void modificarArticulo(ArticuloBean articulo) {
+
+		ArticuloBean newArticulo = ArticuloDao.getInstancia().buscarArticuloPorCodigo(articulo.getCodigo());
+
+		newArticulo.setDescripcion(articulo.getDescripcion());
+		newArticulo.setFoto(articulo.getFoto());
+		newArticulo.setMarca(articulo.getMarca());
+		newArticulo.setNombre(articulo.getNombre());
+		newArticulo.setOrigen(articulo.getOrigen());
+		newArticulo.setPrecio(articulo.getPrecio());
+		newArticulo.setStockActual(articulo.getStockActual());
+		newArticulo.setStockSolicitado(articulo.getStockSolicitado());
+		newArticulo.setTipo(articulo.getTipo());
+
+		newArticulo.updateArticulo();
+
+	}
+
 }
