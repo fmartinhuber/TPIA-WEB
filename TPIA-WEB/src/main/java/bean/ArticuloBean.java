@@ -37,6 +37,9 @@ public class ArticuloBean {
 	@Transient
 	@Column(insertable = false, updatable = false)
 	private String tipo;
+	
+	@Column(nullable = false)
+	private static String grupo;
 
 	// protected String fichaTecnica;
 	@Column(nullable = true)

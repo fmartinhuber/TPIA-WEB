@@ -57,7 +57,6 @@ public class DepositoControlador {
 			muebles.add(aux);
 
 		}
-
 		return muebles;
 	}
 
@@ -78,7 +77,6 @@ public class DepositoControlador {
 		newArticulo.setTipo(articulo.getCodigo());
 
 		newArticulo.persistArticulo();
-
 	}
 
 	public void modificarArticulo(ArticuloBean articulo) {
@@ -96,7 +94,16 @@ public class DepositoControlador {
 		newArticulo.setTipo(articulo.getTipo());
 
 		newArticulo.updateArticulo();
-
+	}
+	
+	public void modificarStockDelArticulo(ArticuloBean articulo){
+		
+		ArticuloBean newArticulo = ArticuloDao.getInstancia().buscarArticuloPorCodigo(articulo.getCodigo());
+		
+		newArticulo.setStockActual(articulo.getStockActual());
+		newArticulo.setStockSolicitado(articulo.getStockSolicitado());
+		
+		newArticulo.updateArticulo();
 	}
 
 }
