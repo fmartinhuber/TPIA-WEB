@@ -6,10 +6,11 @@ import dao.DepositoDao;
 
 public class InsertBaseDeDatos {
 	public static void main(String[] args) {
-		//Metodo para limpiar la base
+
+		// Metodo para limpiar la base
 		DepositoDao.getInstancia().prueba();
 
-		//Carga de objetos para persistir en la base 
-		
+		// Carga de objetos para persistir en la base
+
 	}
 }

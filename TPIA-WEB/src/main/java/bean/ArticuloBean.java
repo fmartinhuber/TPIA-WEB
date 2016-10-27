@@ -10,32 +10,48 @@ import dao.ArticuloDao;
 	 
 */
 
-
 @Entity
-@Table (name="Articulo")
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="tipo", discriminatorType=DiscriminatorType.STRING)
+@Table(name = "Articulo")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "tipo", discriminatorType = DiscriminatorType.STRING)
 public class ArticuloBean {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer idArticulo;
+	@Column(nullable=false)
 	private String nombre;
+	@Column(nullable=false)
 	private String codigo;
+	@Column(nullable=false)
 	private String descripcion;
+	@Column(nullable=false)
 	private String marca;
+	@Column(nullable=false)
 	private float precio;
-	private String foto; 
+	@Column(nullable=false)
+	private String foto;
+	@Column(nullable=false)
 	private String origen;
-	
+
+	@Transient
+	@Column(insertable = false, updatable = false)
 	private String tipo;
-	
-	//protected String fichaTecnica;	
-	private Integer stockActual; 		// 	Atributo particular que manejamos por ser Deposito
-	private Integer stockSolicitado; 	/* 	Este atributo es necesario para posteriormente calcular la cantidad de Articulos a pedir.
-	 										Es el stock que se desea tener en el deposito. Se carga al momento del alta y queda fijo*/
-	
-	
+
+	// protected String fichaTecnica;
+	@Column(nullable=true)
+	private Integer stockActual; // Atributo particular que manejamos por ser
+									// Deposito
+	@Column(nullable=true)
+	private Integer stockSolicitado; /*
+										 * Este atributo es necesario para
+										 * posteriormente calcular la cantidad
+										 * de Articulos a pedir. Es el stock que
+										 * se desea tener en el deposito. Se
+										 * carga al momento del alta y queda
+										 * fijo
+										 */
+
 	public ArticuloBean(String nombre, String codigo, String descripcion, String marca, float precio, String foto,
 			String origen, String tipo, Integer stockActual, Integer stockSolicitado) {
 		super();
@@ -46,16 +62,15 @@ public class ArticuloBean {
 		this.precio = precio;
 		this.foto = foto;
 		this.origen = origen;
-		this.setTipo(tipo);
-		//this.fichaTecnica = fichaTecnica;
+		this.tipo = tipo;
+		// this.fichaTecnica = fichaTecnica;
 		this.stockActual = stockActual;
 		this.stockSolicitado = stockSolicitado;
 	}
 
-	public ArticuloBean(){
-		
-	}
+	public ArticuloBean() {
 
+	}
 
 	public Integer getIdArticulo() {
 		return idArticulo;
@@ -105,7 +120,7 @@ public class ArticuloBean {
 		this.precio = precio;
 	}
 
-	public String isFoto() {
+	public String getFoto() {
 		return foto;
 	}
 
@@ -120,7 +135,7 @@ public class ArticuloBean {
 	public void setOrigen(String origen) {
 		this.origen = origen;
 	}
-	
+
 	public String getTipo() {
 		return tipo;
 	}
@@ -129,13 +144,13 @@ public class ArticuloBean {
 		this.tipo = tipo;
 	}
 
-//	public String getFichaTecnica() {
-//		return fichaTecnica;
-//	}
-//
-//	public void setFichaTecnica(String fichaTecnica) {
-//		this.fichaTecnica = fichaTecnica;
-//	}
+	// public String getFichaTecnica() {
+	// return fichaTecnica;
+	// }
+	//
+	// public void setFichaTecnica(String fichaTecnica) {
+	// this.fichaTecnica = fichaTecnica;
+	// }
 
 	public Integer getStockActual() {
 		return stockActual;
@@ -152,23 +167,21 @@ public class ArticuloBean {
 	public void setStockSolicitado(Integer stockSolicitado) {
 		this.stockSolicitado = stockSolicitado;
 	}
-	
-	
-	public void mergeArticulo(){
+
+	public void mergeArticulo() {
 		ArticuloDao.getInstancia().merge(this);
 	}
-	
-	public void persistArticulo(){
+
+	public void persistArticulo() {
 		ArticuloDao.getInstancia().persist(this);
 	}
-	
-	public void updateArticulo(){
+
+	public void updateArticulo() {
 		ArticuloDao.getInstancia().update(this);
 	}
-	
-	public void deleteArticulo(){
+
+	public void deleteArticulo() {
 		ArticuloDao.getInstancia().delete(this);
 	}
 
-	
 }

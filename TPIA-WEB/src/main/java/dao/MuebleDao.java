@@ -20,10 +20,10 @@ public class MuebleDao extends HibernateDao{
 	}
 	
 	
-	public List<MuebleBean> listarArticulos(){
+	public List<MuebleBean> listarMuebles(){
 		Session s = HibernateUtil.getSessionFactory().openSession();
 		@SuppressWarnings("unchecked")
-		List<MuebleBean> muebles = (List<MuebleBean>)s.createQuery("from Articulo").list();
+		List<MuebleBean> muebles = (List<MuebleBean>)s.createQuery("from ArticuloBean").list();
 		s.close();
 		return muebles;
 	}

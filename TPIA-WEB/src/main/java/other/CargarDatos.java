@@ -15,25 +15,18 @@ public class CargarDatos {
 	public void cargaDeDatos(){
 		
 		// Alta de Articulos Random
+				
+		//ArticuloBean articulo = new ArticuloBean(nombre, codigo, descripcion, marca, precio, foto, origen, tipo, stockActual, stockSolicitado)		
+		//MuebleBean mueble = new MuebleBean(nombre, codigo, descripcion, marca, precio, foto, origen, tipo, stockActual, stockSolicitado, material)
+
+		//ArticuloBean articulo01 = new ArticuloBean("articulo01", "codigo01", "descripcion01", "marca01", 1000, "1", "origen01", "MUE", 10000, 10000);
+		//articulo01.persistArticulo();
 		
-		//List<ArticuloBean> articulos = new ArrayList<>();
-		
-		//ArticuloBean articulo001 = new ArticuloBean(nombre, codigo, descripcion, marca, precio, foto, origen, stockActual, stockSolicitado);
-		
-//		ArticuloBean articulo001 = new ArticuloBean("nombre01", "codigo01", "descripcion01", "marca01", 1, "foto01", "origen01", 1, 1);
-//		ArticuloBean articulo002 = new ArticuloBean("nombre02", "codigo02", "descripcion02", "marca02", 2, "foto02", "origen02", 2, 2);
-//		
-//		articulo001.persistArticulo();
-//		articulo002.persistArticulo();
-		
-		
-		/********************/
-		
-		//MuebleBean muebles = new MuebleBean(nombre, codigo, descripcion, marca, precio, foto, origen, tipo, stockActual, stockSolicitado, material)
-		
-		MuebleBean muebles01 = new MuebleBean("mueble01", "codigo01", "descripcion01", "marca01", 1000, "1", "origen01", "MUE", 1000, 1000, "material01");
+		MuebleBean muebles01 = new MuebleBean("mueble01", "codigo01", "descripcion01", "marca01", 1000, "1", "origen01", "MUE", 1000,1000, "material01");
+		MuebleBean muebles02 = new MuebleBean("mueble02", "codigo02", "descripcion02", "marca02", 2000, "2", "origen02", "MUE", 2000,2000, "material02");
 		
 		muebles01.persistArticulo();
+		muebles02.persistArticulo();
 		
 	}
 	
