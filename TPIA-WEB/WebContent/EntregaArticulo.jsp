@@ -52,7 +52,6 @@
 		$.get("EntregaArticuloServlet", {opcion: accion}, function(responseText) {
 			var obtenido = responseText;
 			var obtParseRow = obtenido.split("-");
-
 			$('#SolicitudArticulo tr').not(':first').remove();
 			var html = '';
 			for(var i=0; i < Object.keys(obtParseRow).length; i++){
@@ -65,12 +64,10 @@
 			$('#SolicitudArticulo tr').first().after(html);
 		});
 	});
- 
 	$(document).ready(function() {
 		$("#obtArticulos").click(function() {
 			var accion = "obtArticulos";
 			var valorSolBuscada = $('#solicitudSeleccionada').val();
-
 			$.get("EntregaArticuloServlet", {opcion: accion, solicitudBuscada: valorSolBuscada}, function(responseText) {
 				var obtenido = responseText;
 				var obtParseRow = obtenido.split("-");
@@ -85,7 +82,6 @@
 			});
 		});
 	});
-
 </script>
 
 
