@@ -23,6 +23,7 @@ public class EntregaArticuloServlet extends HttpServlet  {
 		//System.out.println("AGUANTE JQUERY VIEJA NO ME IMPORTA NADA: " + request.getParameter("opcion"));
 		//response.getWriter().write("POR FAVOR FUNCIONA");
 		
+		
 		//-----SOLICITUDES HARDCODEADAS-----//
 		//Hardcodeo un string doblemente parseado de Solicitudes, por row y columnas. Deberia buscarse en la base y armarse aca
 		if (request.getParameter("opcion").equalsIgnoreCase("obtSolPen")){
@@ -30,6 +31,7 @@ public class EntregaArticuloServlet extends HttpServlet  {
 			String solicitudesHardcore = "G12JO5I1;?24/08/2016-??G12I95TA;?11/09/2016-??G129IT15;?17/10/2016";
 			response.getWriter().write(solicitudesHardcore);
 		}
+		
 		
 		//-----ARTICULOS HARDCODEADOS-----//
 		//Hardcodeo un string doblemente parseado de Articulos, por row y columnas. Deberia buscarse en la base y armarse aca
@@ -46,6 +48,7 @@ public class EntregaArticuloServlet extends HttpServlet  {
 			
 		}
 		
+		
 		//----- MOSTRAR CANTIDAD ARTICULOS HARDCODEADOS-----//
 		//Hardcodeo la busqueda del Articulo G12890471
 		if (request.getParameter("opcion").equalsIgnoreCase("actArticulos")){
@@ -54,6 +57,14 @@ public class EntregaArticuloServlet extends HttpServlet  {
 			
 			//Devuelvo la cantidad hardcodeadisima de 2
 			response.getWriter().write("2");
+		}
+		
+		
+		//----- ACTUALIZAR CANTIDAD ARTICULOS HARDCODEADOS-----//
+		/*Hardcodeo la actualizacion del Articulo G12890471. Aca se deberia recorrer a lista de Articulos de la Solicitud, encontrarlo, modificar su cantidad y actualizarlo en la base
+		de esta forma al volver a consultarlo ya estaria actualizado*/
+		if (request.getParameter("opcion").equalsIgnoreCase("setCantArticulos")){
+			
 		}
 		
 	}

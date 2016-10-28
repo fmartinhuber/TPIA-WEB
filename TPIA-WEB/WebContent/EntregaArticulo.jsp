@@ -88,7 +88,7 @@
 					}
 					$('#DetalleSolicitado tr').first().after(html);
 				}else{
-					alert("No se encontro la solicitud ingresada");
+					alert("No se encontro la Solicitud de Articulos ingresada");
 				}
 			});
 		});
@@ -102,23 +102,42 @@
 
 			$.get("EntregaArticuloServlet", {opcion: accion, articuloBuscado: valorArtBuscado}, function(responseText) {
 				var obtenido = responseText;
+
+				//Si trajo datos muestro, sino alerta
+				if (obtenido.trim()){
+					//Seteo la cantidad como informacion en textfield disabled
+					$('#cantSolicitadaArticulo').val(obtenido);
+				}else{
+					alert("No se encontro el Articulo ingresado");
+				}
 				
 			});
-
-			//Si es Natural o cero continuo, sino alerta
-			if (esNatural(1)){
-				
-			}else{
-				alert("Por favor, ingrese un numero Natural");
-			}
-
-			
 		});
 	});
 
+
+	//Actualizar Articulo a modificar
+	$(document).ready(function() {
+		$("#modificarArticulo").click(function(){
+			var accion = "setCantArticulos";
+			var nuevaCantidad = $('#nuevaCantidadArticulo').val();
+			var articuloAModificar = $('#codModArticulo').val();
+			
+			//Si es Natural o cero continuo, sino alerta
+			if (esNatural(nuevaCantidad)){
+				$.get("EntregaArticuloServlet", {opcion: accion, nuevaCant: nuevaCantidad, articulo: articuloAModificar}, function(responseText) {
+					//Blanqueo campos y alerta que se actualizo de forma correcta
+					alert("Cantidad de Articulo modificada de forma correcta");
+					$('#codModArticulo').val('');
+					$('#cantSolicitadaArticulo').val('');
+					$('#nuevaCantidadArticulo').val('');					
+				});
+			}else{
+				alert("Por favor, ingrese un numero Natural");
+			}
+		});
+	});
 	
-
-
 	//Valida numeros Naturales
 	function esNatural(parametroStr) {
 	    return /^\+?\d+$/.test(parametroStr);
