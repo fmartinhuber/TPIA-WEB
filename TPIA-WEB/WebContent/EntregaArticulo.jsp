@@ -94,16 +94,35 @@
 		});
 	});
 
-	//Modificacion de cantidad de Articulo
+	//Obtener Articulo a modificar
 	$(document).ready(function() {
 		$("#obtModifArticulos").click(function() {
-			//Obtener la cantidad ingresada y mostrarla
-			//Obtener la nueva cantidad
-			//Validar numerico
-			//Enviar al servlet, este al dao, y que este actualice la cantidad en su objeto y base
-			//Si se desea ver la actualizacion tienen que volver a consultar los Articulos de la Solicitud
+			var accion = "actArticulos";
+			var valorArtBuscado = $('#codModArticulo').val();
+
+			$.get("EntregaArticuloServlet", {opcion: accion, articuloBuscado: valorArtBuscado}, function(responseText) {
+				var obtenido = responseText;
+				
+			});
+
+			//Si es Natural o cero continuo, sino alerta
+			if (esNatural(1)){
+				
+			}else{
+				alert("Por favor, ingrese un numero Natural");
+			}
+
+			
 		});
 	});
+
+	
+
+
+	//Valida numeros Naturales
+	function esNatural(parametroStr) {
+	    return /^\+?\d+$/.test(parametroStr);
+	}
 </script>
 
 
@@ -169,9 +188,9 @@
 				 	
 				 	<h4>Modificacion de Cantidades</h4>
 				 	
-				 	Codigo Articulo: <input type="text" name="modificarArticulo" id="modificarArticulo">
+				 	Codigo Articulo: <input type="text" name="codModArticulo" id="codModArticulo">
 				 	<button type="button" id="obtModifArticulos" name="obtModifArticulos">Modificar Articulo</button><br>
-				 	Cantidad Solicitada: <input type="text" name="cantSolicitadaArticulo" id="cantSolicitadaArticulo" readonly><br>
+				 	Cantidad Solicitada: <input type="text" name="cantSolicitadaArticulo" id="cantSolicitadaArticulo" disabled readonly><br>
 				 	Nueva cantidad a solicitar: <input type="text" name="nuevaCantidadArticulo" id="nuevaCantidadArticulo"><br>
 				 	<button type="button" id="modificarArticulo" name="modificarArticulo">Aceptar</button><br>
 				 	

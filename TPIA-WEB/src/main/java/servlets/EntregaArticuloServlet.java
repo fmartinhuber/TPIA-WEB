@@ -23,6 +23,7 @@ public class EntregaArticuloServlet extends HttpServlet  {
 		//System.out.println("AGUANTE JQUERY VIEJA NO ME IMPORTA NADA: " + request.getParameter("opcion"));
 		//response.getWriter().write("POR FAVOR FUNCIONA");
 		
+		//-----SOLICITUDES HARDCODEADAS-----//
 		//Hardcodeo un string doblemente parseado de Solicitudes, por row y columnas. Deberia buscarse en la base y armarse aca
 		if (request.getParameter("opcion").equalsIgnoreCase("obtSolPen")){
 			//Parametros: Codigo;Fecha
@@ -30,6 +31,7 @@ public class EntregaArticuloServlet extends HttpServlet  {
 			response.getWriter().write(solicitudesHardcore);
 		}
 		
+		//-----ARTICULOS HARDCODEADOS-----//
 		//Hardcodeo un string doblemente parseado de Articulos, por row y columnas. Deberia buscarse en la base y armarse aca
 		if (request.getParameter("opcion").equalsIgnoreCase("obtArticulos")){
 			//Obtengo la solicitud a buscar
@@ -42,6 +44,16 @@ public class EntregaArticuloServlet extends HttpServlet  {
 				response.getWriter().write(articulosHardcore);
 			}
 			
+		}
+		
+		//----- MOSTRAR CANTIDAD ARTICULOS HARDCODEADOS-----//
+		//Hardcodeo la busqueda del Articulo G12890471
+		if (request.getParameter("opcion").equalsIgnoreCase("actArticulos")){
+			//Obtengo el codigo articulo buscado
+			String codArticulo = request.getParameter("solicitudBuscada");
+			
+			//Devuelvo la cantidad hardcodeadisima de 2
+			response.getWriter().write("2");
 		}
 		
 	}
