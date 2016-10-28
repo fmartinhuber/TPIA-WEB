@@ -25,28 +25,20 @@ public class ArticuloDao2 implements IArticuloDao2 {
 	@SuppressWarnings("unchecked")
 	public List<ArticuloBean2> listarArticulosPorFechas(Date start, Date end) {
 		return em.createQuery(
-			      "SELECT a FROM ArticuloBean2 a "
+			     "SELECT a FROM ArticuloBean2 a "
 			      + "WHERE a.fecha between :start and :end"
-			      + " =:start")
-			      .setParameter("start", start)
-			      .setParameter("end", end)
-			      .getResultList();
+			      + " =:start").setParameter("start", start).setParameter("end", end).getResultList();
 	}
 	
 	public ArticuloBean2 obtenerArticuloPorNombre(String nombre) {
 		return (ArticuloBean2) em.createQuery(
-			      "SELECT a FROM ArticuloBean2 a WHERE a.nombre =:nombre")
-			      .setParameter("nombre", nombre)
-			      .setMaxResults(1)
-			      .getSingleResult();
+			      "SELECT a FROM ArticuloBean2 a WHERE a.nombre =:nombre").setParameter("nombre", nombre).setMaxResults(1).getSingleResult();
 	}
 
 		
 	@SuppressWarnings("unchecked")
 	public List<ArticuloBean2> listarArticulos() {
-		return em.createQuery(
-			      "SELECT a FROM ArticuloBean2 a")
-			      .getResultList();
+		return em.createQuery("SELECT a FROM ArticuloBean2 a").getResultList();
 	}
 
 	@Override
