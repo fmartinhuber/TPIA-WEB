@@ -57,7 +57,6 @@ public class DepositoControlador {
 			muebles.add(aux);
 
 		}
-
 		return muebles;
 	}
 
@@ -78,7 +77,33 @@ public class DepositoControlador {
 		newArticulo.setTipo(articulo.getCodigo());
 
 		newArticulo.persistArticulo();
+	}
 
+	public void modificarArticulo(ArticuloBean articulo) {
+
+		ArticuloBean newArticulo = ArticuloDao.getInstancia().buscarArticuloPorCodigo(articulo.getCodigo());
+
+		newArticulo.setDescripcion(articulo.getDescripcion());
+		newArticulo.setFoto(articulo.getFoto());
+		newArticulo.setMarca(articulo.getMarca());
+		newArticulo.setNombre(articulo.getNombre());
+		newArticulo.setOrigen(articulo.getOrigen());
+		newArticulo.setPrecio(articulo.getPrecio());
+		newArticulo.setStockActual(articulo.getStockActual());
+		newArticulo.setStockSolicitado(articulo.getStockSolicitado());
+		newArticulo.setTipo(articulo.getTipo());
+
+		newArticulo.updateArticulo();
+	}
+	
+	public void modificarStockDelArticulo(ArticuloBean articulo){
+		
+		ArticuloBean newArticulo = ArticuloDao.getInstancia().buscarArticuloPorCodigo(articulo.getCodigo());
+		
+		newArticulo.setStockActual(articulo.getStockActual());
+		newArticulo.setStockSolicitado(articulo.getStockSolicitado());
+		
+		newArticulo.updateArticulo();
 	}
 
 }

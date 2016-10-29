@@ -47,45 +47,101 @@
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
+	//Tabla Solicitudes de Articulos al iniciar la pagina
 	$(document).ready(function(){
 		var accion = "obtSolPen";
 		$.get("EntregaArticuloServlet", {opcion: accion}, function(responseText) {
 			var obtenido = responseText;
-			var obtParseRow = obtenido.split("-");
-
+			var obtParseRow = obtenido.split("-??");
 			$('#SolicitudArticulo tr').not(':first').remove();
 			var html = '';
 			for(var i=0; i < Object.keys(obtParseRow).length; i++){
-				var obtParseColumn = obtParseRow[i].split(";");
+				var obtParseColumn = obtParseRow[i].split(";?");
 				html += '<tr><td>' + obtParseColumn[0] + '</td><td>' + obtParseColumn[1] + '</td></tr>';
-				//De esta forma cargo la tabla con un radiobutton pero no me da bola por cargarse antes de futuros clicks
+				//De esta forma cargo la tabla con un radiobutton pero no me da bola por cargarse antes de futuros clicks dinamicos
 				//html += '<tr><td>' + obtParseColumn[0] + '</td><td>' + obtParseColumn[1] + '</td>';
 				//html += '<td><div class="radio"><input type="radio" name="selectSolRadio" id="selectSolRadio value="'+i+'"></div></td></tr>';
 			}
 			$('#SolicitudArticulo tr').first().after(html);
 		});
 	});
- 
+
+	//Tabla Articulos al momento de busqueda
 	$(document).ready(function() {
 		$("#obtArticulos").click(function() {
 			var accion = "obtArticulos";
 			var valorSolBuscada = $('#solicitudSeleccionada').val();
-
 			$.get("EntregaArticuloServlet", {opcion: accion, solicitudBuscada: valorSolBuscada}, function(responseText) {
 				var obtenido = responseText;
-				var obtParseRow = obtenido.split("-");
-				
-				$('#DetalleSolicitado tr').not(':first').remove();
-				var html = '';
-				for(var i=0; i < Object.keys(obtParseRow).length; i++){
-					var obtParseColumn = obtParseRow[i].split(";");
-					html += '<tr><td>' + obtParseColumn[0] + '</td><td>' + obtParseColumn[1] + '</td><td>' + obtParseColumn[2] + '</td><td>' + obtParseColumn[3] + '</td><td>' + obtParseColumn[4] + '</td></tr>'; 
+				var obtParseRow = obtenido.split("-??");
+
+				//Si trajo datos muestro, sino alerta
+				if (obtenido.trim()){
+					//Seteo la solicitud utilizada como informacion en textfield disabled
+					$("#solicitudMuestra").val(valorSolBuscada);
+
+					$('#DetalleSolicitado tr').not(':first').remove();
+					var html = '';
+					for(var i=0; i < Object.keys(obtParseRow).length; i++){
+						var obtParseColumn = obtParseRow[i].split(";?");
+						html += '<tr><td>' + obtParseColumn[0] + '</td><td>' + obtParseColumn[1] + '</td><td>' + obtParseColumn[2] + '</td><td>' + obtParseColumn[3] + '</td><td>' + obtParseColumn[4] + '</td></tr>'; 
+					}
+					$('#DetalleSolicitado tr').first().after(html);
+				}else{
+					alert("No se encontro la Solicitud de Articulos ingresada");
 				}
-				$('#DetalleSolicitado tr').first().after(html);
 			});
 		});
 	});
 
+	//Obtener Articulo a modificar
+	$(document).ready(function() {
+		$("#obtModifArticulos").click(function() {
+			var accion = "actArticulos";
+			var valorArtBuscado = $('#codModArticulo').val();
+
+			$.get("EntregaArticuloServlet", {opcion: accion, articuloBuscado: valorArtBuscado}, function(responseText) {
+				var obtenido = responseText;
+
+				//Si trajo datos muestro, sino alerta
+				if (obtenido.trim()){
+					//Seteo la cantidad como informacion en textfield disabled
+					$('#cantSolicitadaArticulo').val(obtenido);
+				}else{
+					alert("No se encontro el Articulo ingresado");
+				}
+				
+			});
+		});
+	});
+
+
+	//Actualizar Articulo a modificar
+	$(document).ready(function() {
+		$("#modificarArticulo").click(function(){
+			var accion = "setCantArticulos";
+			var nuevaCantidad = $('#nuevaCantidadArticulo').val();
+			var articuloAModificar = $('#codModArticulo').val();
+			
+			//Si es Natural o cero continuo, sino alerta
+			if (esNatural(nuevaCantidad)){
+				$.get("EntregaArticuloServlet", {opcion: accion, nuevaCant: nuevaCantidad, articulo: articuloAModificar}, function(responseText) {
+					//Blanqueo campos y alerta que se actualizo de forma correcta
+					alert("Cantidad de Articulo modificada de forma correcta");
+					$('#codModArticulo').val('');
+					$('#cantSolicitadaArticulo').val('');
+					$('#nuevaCantidadArticulo').val('');					
+				});
+			}else{
+				alert("Por favor, ingrese un numero Natural");
+			}
+		});
+	});
+	
+	//Valida numeros Naturales
+	function esNatural(parametroStr) {
+	    return /^\+?\d+$/.test(parametroStr);
+	}
 </script>
 
 
@@ -134,7 +190,7 @@
 			    	<button type="button" id="obtArticulos" name="obtArticulos">Obtener Articulos</button>
 			    	
 			    	<br><br>
-			    	Articulos de la Solicitud <input type="text" name="solicitudMuestra" id=""solicitudMuestra" readonly>
+			    	Articulos de la Solicitud <input type="text" name="solicitudMuestra" id="solicitudMuestra" disabled readonly>
 					<table id=DetalleSolicitado>
 				 		<tr>
 				 			<td>Codigo</td>
@@ -151,10 +207,10 @@
 				 	
 				 	<h4>Modificacion de Cantidades</h4>
 				 	
-				 	Codigo Articulo: <input type="text" name="modificarArticulo" id=""modificarArticulo">
+				 	Codigo Articulo: <input type="text" name="codModArticulo" id="codModArticulo">
 				 	<button type="button" id="obtModifArticulos" name="obtModifArticulos">Modificar Articulo</button><br>
-				 	Cantidad Solicitada: <input type="text" name="cantSolicitadaArticulo" id=""cantSolicitadaArticulo" readonly><br>
-				 	Nueva cantidad a solicitar: <input type="text" name="nuevaCantidadArticulo" id=""nuevaCantidadArticulo"><br>
+				 	Cantidad Solicitada: <input type="text" name="cantSolicitadaArticulo" id="cantSolicitadaArticulo" disabled readonly><br>
+				 	Nueva cantidad a solicitar: <input type="text" name="nuevaCantidadArticulo" id="nuevaCantidadArticulo"><br>
 				 	<button type="button" id="modificarArticulo" name="modificarArticulo">Aceptar</button><br>
 				 	
 				 </div><!-- col -lg-8 -->

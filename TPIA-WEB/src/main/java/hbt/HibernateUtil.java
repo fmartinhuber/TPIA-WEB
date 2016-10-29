@@ -9,7 +9,7 @@ public class HibernateUtil{
     private static final SessionFactory sessionFactory;
     static{
         try{
-        	 AnnotationConfiguration config = new AnnotationConfiguration();
+			AnnotationConfiguration config = new AnnotationConfiguration();
         	 
              config.addAnnotatedClass(ArticuloBean.class);
              config.addAnnotatedClass(ItemRecepcionCompra.class);
