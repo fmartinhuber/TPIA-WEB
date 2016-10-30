@@ -12,6 +12,7 @@ public class InsertBaseDeDatos {
 		DepositoDao.getInstancia().prueba();
 
 		
+		
 		// Carga de objetos para persistir en la base
 
 	}
