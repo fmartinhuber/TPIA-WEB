@@ -76,7 +76,7 @@ public class DepositoControlador {
 		newArticulo.setStockSolicitado(articulo.getStockSolicitado());
 		newArticulo.setTipo(articulo.getCodigo());
 
-		newArticulo.persistArticulo();
+		newArticulo.persistArticulo(newArticulo);
 	}
 
 	public void modificarArticulo(ArticuloBean articulo) {
@@ -93,7 +93,7 @@ public class DepositoControlador {
 		newArticulo.setStockSolicitado(articulo.getStockSolicitado());
 		newArticulo.setTipo(articulo.getTipo());
 
-		newArticulo.updateArticulo();
+		newArticulo.updateArticulo(newArticulo);
 	}
 	
 	public void modificarStockDelArticulo(ArticuloBean articulo){
@@ -103,7 +103,7 @@ public class DepositoControlador {
 		newArticulo.setStockActual(articulo.getStockActual());
 		newArticulo.setStockSolicitado(articulo.getStockSolicitado());
 		
-		newArticulo.updateArticulo();
+		newArticulo.updateArticulo(newArticulo);
 	}
 
 }

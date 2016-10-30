@@ -22,14 +22,14 @@ public class SolicitudArticuloDao {
 
 	public static SolicitudArticuloDao getInstancia(){
 		if(instancia == null){
-			sf = HibernateUtil.getSessionFactory();
 			instancia = new SolicitudArticuloDao();
 		} 
 		return instancia;
 	}
 	
 	public List <SolicitudArticuloBean> obtenerArticulosPendientes(){
-		Session s = HibernateUtil.getSessionFactory().openSession();
-		return s.createQuery("Select from SolicitudArticuloBean s where s.isPendiente=true").list();
+//		Session s = HibernateUtil.getSessionFactory().openSession();
+//		return s.createQuery("Select from SolicitudArticuloBean s where s.isPendiente=true").list();
+		return null;
 	}
 }

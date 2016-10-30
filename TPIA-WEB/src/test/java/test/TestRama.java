@@ -63,9 +63,6 @@ public class TestRama {
 		newArticulo.setTipo("MUE");
 		
 		DepositoControlador.getInstancia().crearArticulo(newArticulo);
-=======
-		 */
-		 
 		DepositoControlador dc = new DepositoControlador();
 		
 		List<MuebleBean> muebles = dc.listarMuebles();
@@ -102,7 +99,6 @@ public class TestRama {
 //		newArticulo.setTipo("MUE");
 //		
 //		DepositoControlador.getInstancia().crearArticulo(newArticulo);
->>>>>>> branch 'master' of https://github.com/fmartinhuber/TPIA-WEB
 		
 	}
 

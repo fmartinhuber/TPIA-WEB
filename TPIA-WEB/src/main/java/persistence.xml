@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+   xsi:schemaLocation="http://java.sun.com/xml/ns/persistence 
+   http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+   
+	<persistence-unit name="Eclipselink_JPA">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>bean.ArticuloBean</class>
+		<class>bean.ArticuloBean2</class>
+		<class>bean.ElectrodomesticoBean</class>
+		<class>bean.ItemRecepcionCompra</class>
+		<class>bean.ItemSoicitadoArticuloBean</class>
+		<class>bean.ModaBean</class>
+		<class>bean.MovimientoStockBean</class>
+		<class>bean.MuebleBean</class>
+		<class>bean.NinoBean</class>
+		<class>bean.RecepcionCompraBean</class>
+		<class>bean.SolicitudCompraBean</class>
+		<class>bean.SolicitudArticuloBean</class>
+		<class>bean.TipoArticulo</class>
+		
+		<properties>
+			<property name="javax.persistence.jdbc.url" value="jdbc:jdbc:microsoft:sqlserver//localhost:1433/Hibernate"/>
+			<property name="javax.persistence.jdbc.user" value="Hibernate"/>
+			<property name="javax.persistence.jdbc.password" value="q1w2e3"/>
+			<property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+			<property name="eclipselink.logging.level" value="FINE"/>
+			<property name="eclipselink.ddl-generation" value="create-tables"/>
+		</properties>
+	  
+	</persistence-unit>
+</persistence>

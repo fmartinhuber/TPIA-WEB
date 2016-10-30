@@ -1,6 +1,9 @@
 package other;
 
+import javax.persistence.EntityManager;
+
 import bean.*;
+import hbt.HibernateUtil;
 
 public class CargarDatos {
 
@@ -12,6 +15,7 @@ public class CargarDatos {
 		return instancia;
 	}
 	
+	
 	public void cargaDeDatos(){
 		
 		// Alta de Articulos Random
@@ -22,11 +26,13 @@ public class CargarDatos {
 		//ArticuloBean articulo01 = new ArticuloBean("articulo01", "codigo01", "descripcion01", "marca01", 1000, "1", "origen01", "MUE", 10000, 10000);
 		//articulo01.persistArticulo();
 		
+		
+		EntityManager em = HibernateUtil.getInstancia().getSessionFactory();
 		MuebleBean muebles01 = new MuebleBean("mueble01", "codigo01", "descripcion01", "marca01", 1000, "1", "origen01", "MUE", 1000,1000, "material01");
 		MuebleBean muebles02 = new MuebleBean("mueble02", "codigo02", "descripcion02", "marca02", 2000, "2", "origen02", "MUE", 2000,2000, "material02");
 		
-		muebles01.persistArticulo();
-		muebles02.persistArticulo();
+		muebles01.persistArticulo(muebles01);
+		muebles02.persistArticulo(muebles02);
 		
 	}
 	

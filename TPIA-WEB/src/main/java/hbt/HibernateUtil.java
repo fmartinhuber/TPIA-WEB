@@ -1,42 +1,32 @@
 package hbt;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
 
 import bean.*;
+import dao.ArticuloDao;
 
 public class HibernateUtil{
-    private static final SessionFactory sessionFactory;
-    static{
-        try{
-			AnnotationConfiguration config = new AnnotationConfiguration();
-        	 
-             config.addAnnotatedClass(ArticuloBean.class);
-             config.addAnnotatedClass(ItemRecepcionCompra.class);
-             config.addAnnotatedClass(ItemSolicitadoArticuloBean.class);
-             config.addAnnotatedClass(ItemSolicitudCompraBean.class);
-             config.addAnnotatedClass(MovimientoStockBean.class);
-             config.addAnnotatedClass(RecepcionCompraBean.class);
-             config.addAnnotatedClass(SolicitudArticuloBean.class);
-             config.addAnnotatedClass(SolicitudCompraBean.class);
-             
-             config.addAnnotatedClass(ElectrodomesticoBean.class);  
-             config.addAnnotatedClass(NinoBean.class);  
-             config.addAnnotatedClass(ModaBean.class);  
-             config.addAnnotatedClass(MuebleBean.class);  
-             
-             
-             sessionFactory = config.buildSessionFactory();
-        }
-        catch (Throwable ex)
-        {
-            System.err.println("Initial SessionFactory creation failed." + ex);
-            throw new ExceptionInInitializerError(ex);
-        }
-    }
- 
-    public static SessionFactory getSessionFactory()
+	
+	private static HibernateUtil instancia;
+	private EntityManagerFactory emfactory;
+	
+	public static HibernateUtil getInstancia(){
+		if(instancia == null)
+			instancia = new HibernateUtil();
+		return instancia;
+	}
+	
+	public HibernateUtil(){
+		emfactory = Persistence.createEntityManagerFactory("Eclipselink_JPA");
+	}
+	
+    public EntityManager getSessionFactory()
     {
-        return sessionFactory;
+    	return emfactory.createEntityManager();
     }
 }

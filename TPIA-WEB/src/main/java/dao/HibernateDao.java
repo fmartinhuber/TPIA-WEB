@@ -21,7 +21,7 @@ public class HibernateDao{
 	}
 	
 	protected HibernateDao()  {
-		sf = HibernateUtil.getSessionFactory();
+		
 	}
 
 	protected Session getSession(){

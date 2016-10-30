@@ -16,6 +16,9 @@ import dao.ArticuloDao;
 @DiscriminatorColumn(name = "tipo", discriminatorType = DiscriminatorType.STRING)
 public class ArticuloBean {
 
+	@PersistenceContext
+	private EntityManager em;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer idArticulo;
@@ -172,19 +175,19 @@ public class ArticuloBean {
 	}
 
 	public void mergeArticulo() {
-		ArticuloDao.getInstancia().merge(this);
+		em.merge(this);
 	}
 
-	public void persistArticulo() {
-		ArticuloDao.getInstancia().persist(this);
+	public void persistArticulo(ArticuloBean articuloBean) {
+		em.persist(articuloBean);
 	}
 
-	public void updateArticulo() {
-		ArticuloDao.getInstancia().update(this);
+	public void updateArticulo(ArticuloBean articuloBean) {
+		em.persist(articuloBean);
 	}
 
-	public void deleteArticulo() {
-		ArticuloDao.getInstancia().delete(this);
+	public void deleteArticulo(ArticuloBean articuloBean) {
+		em.remove(articuloBean);
 	}
 
 }

@@ -2,6 +2,8 @@ package dao;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+
 import org.hibernate.Session;
 
 import bean.ArticuloBean;
@@ -22,30 +24,29 @@ public class ArticuloDao extends HibernateDao{
 	
 	
 	public List<ArticuloBean> listarArticulos(){
-		Session s = HibernateUtil.getSessionFactory().openSession();
-		@SuppressWarnings("unchecked")
-		List<ArticuloBean> articulos = (List<ArticuloBean>)s.createQuery("from Articulo").list();
-		s.close();
-		return articulos;
+//		EntityManager em = HibernateUtil.getSessionFactory();
+//		List<ArticuloBean> articulos = (List<ArticuloBean>)em.createQuery("from Articulo")();
+//		return articulos;
+		return null;
 	}
 	
 	
 	public int obtenerMaximoIdArticulo() {
-		Session s = HibernateUtil.getSessionFactory().openSession();
-		int resultado = 1;
-		resultado = (int) s.createQuery("select max(a.idArticulo) from Articulo a").uniqueResult();
-		s.clear();
-		return resultado+1;
+//		int resultado = 1;
+//		resultado = (int) s.createQuery("select max(a.idArticulo) from Articulo a").uniqueResult();
+//		s.clear();
+//		return resultado+1;
+		return 0;
 	}	
 	
 	public ArticuloBean buscarArticuloPorCodigo(String codigo){
 		
-		Session s = HibernateUtil.getSessionFactory().openSession();
-		org.hibernate.Query query = s.createQuery("from ArticuloBean a where p.codigo = :codigoArticulo");
-		query.setParameter("codigoArticulo", codigo);
-		ArticuloBean articulo = (ArticuloBean) query.uniqueResult();
-		s.close();
-		return articulo;
+//		org.hibernate.Query query = s.createQuery("from ArticuloBean a where p.codigo = :codigoArticulo");
+//		query.setParameter("codigoArticulo", codigo);
+//		ArticuloBean articulo = (ArticuloBean) query.uniqueResult();
+//		s.close();
+//		return articulo;
+		return null;
 		
 	}
 

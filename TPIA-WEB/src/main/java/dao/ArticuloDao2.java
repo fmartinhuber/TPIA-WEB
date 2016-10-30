@@ -10,7 +10,7 @@ import javax.persistence.PersistenceContext;
 import bean.ArticuloBean2;
 
 @Stateless
-public class ArticuloDao2 implements IArticuloDao2 {
+public class ArticuloDao2 {
 
 	@PersistenceContext
 	private EntityManager em;
@@ -41,19 +41,16 @@ public class ArticuloDao2 implements IArticuloDao2 {
 		return em.createQuery("SELECT a FROM ArticuloBean2 a").getResultList();
 	}
 
-	@Override
-	public void persist(ArticuloBean2 articulo) {
-		em.persist(articulo);
+	public void persist() {
+		em.persist(this);
 	}
 
-	@Override
-	public void remove(ArticuloBean2 articulo) {
-		em.remove(articulo);
+	public void remove() {
+		em.remove(this);
 	}
 
-	@Override
-	public void update(ArticuloBean2 articulo) {
-		em.merge(articulo);		
+	public void update() {
+		em.merge(this);		
 	}
 
 	
