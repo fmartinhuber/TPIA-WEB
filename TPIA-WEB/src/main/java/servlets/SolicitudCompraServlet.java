@@ -7,8 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bean.SolicitudCompraBean;
-import controler.DepositoControlador;
 
 /**
  * Servlet implementation class SolicitudCompraServlet
@@ -31,9 +29,9 @@ public class SolicitudCompraServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		SolicitudCompraBean solicitudCompraBean = new SolicitudCompraBean();
-		
-		DepositoControlador.getInstancia();
+//		SolicitudCompraBean solicitudCompraBean = new SolicitudCompraBean();
+//		
+//		DepositoControlador.getInstancia();
 		
 	}
 
