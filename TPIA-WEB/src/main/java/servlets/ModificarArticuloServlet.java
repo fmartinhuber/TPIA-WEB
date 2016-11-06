@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bean.*;
+import controler.*;
+
 @WebServlet("/ModificarArticuloServlet")
 public class ModificarArticuloServlet extends HttpServlet {
 
@@ -42,11 +45,30 @@ public class ModificarArticuloServlet extends HttpServlet {
 
 	}
 
-	private void modificarArticulo(HttpServletRequest request, HttpServletResponse response)
-			throws NotBoundException, IOException {
+	
+	private void modificarArticulo(HttpServletRequest request, HttpServletResponse response) throws NotBoundException, IOException {
 
+		ArticuloBean newArticulo = new ArticuloBean();
+		
+		newArticulo.setCodigo(Integer.valueOf(request.getParameter("codigo")));
+		//newArticulo.setCodigo(ArticuloDao.getInstancia().buscarArticuloPorCodigo(request.getParameter("codigo")).getCodigo());
+		newArticulo.setCantidadDisponible(Integer.valueOf(request.getParameter("cantidad")));
+		
+		System.out.println("codigo" +request.getParameter("codigo"));
+		System.out.println("cantidad" +request.getParameter("cantidad"));
+		
 		try {
-
+			
+			if(newArticulo.getCodigo() == 0){
+				response.getWriter().print("<h1>No se encontró el artículo con el código ingresado<h1>");
+				response.getWriter().print("<p> <a href=\"/tpia-rama/index.jsp\">Regresar Menu</a></p>");
+			}
+			else{
+				DepositoControlador.getInstancia().modificarStockDelArticulo(newArticulo);
+				response.getWriter().print("<h1> Se modificó el stock del artículo<h1>");				
+				response.getWriter().print("<p> <a href=\"/tpia-rama/index.jsp\">Regresar Menu</a></p>");
+			}			
+			
 		}
 
 		catch (Exception e) {

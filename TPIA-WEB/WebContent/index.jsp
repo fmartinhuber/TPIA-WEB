@@ -44,7 +44,7 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">ARTICULOS <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="CrearArticulo.jsp">CREAR ARTICULO</a></li>
+                <li><a href="TipoArticulo.jsp">CREAR ARTICULO</a></li>
                 <li><a href="ModificarArticulo.jsp">MODIFICAR ARTICULO</a></li>
               </ul>
             </li>
