@@ -22,3 +22,4 @@ hibernate.properties
 *.jdt.core.prefs*
 *wst.common.component*
 *wst.common.project.facet.core.xml*
+*org.eclipse.wst.*
