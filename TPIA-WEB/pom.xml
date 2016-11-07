@@ -102,12 +102,6 @@
         <!-- Import Spring dependencies, these are either from community or versions
             certified in WFK2 -->
             <dependency>
-		      <groupId>TPA-Server</groupId>
-		      <artifactId>TPA-Server</artifactId>
-		      <version>0.0.1-SNAPSHOT</version>
-		      <type>ejb</type>
-		     </dependency>
-            <dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
 			<version>2.5</version>
@@ -122,6 +116,13 @@
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.0.1</version>
 </dependency>
+<!-- https://mvnrepository.com/artifact/dom4j/dom4j -->
+<dependency>
+    <groupId>dom4j</groupId>
+    <artifactId>dom4j</artifactId>
+    <version>1.6.1</version>
+</dependency>
+
 <dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
@@ -229,6 +230,17 @@
 			<artifactId>slf4j-simple</artifactId>
 			<version>1.6.4</version>
 			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>TPA-Server</groupId>
+			<artifactId>TPA-Server</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>ejb</type>
+		</dependency>
+		<dependency>
+			<groupId>TPA-ServerClient</groupId>
+			<artifactId>TPA-ServerClient</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
     </dependencies>
   <build>
